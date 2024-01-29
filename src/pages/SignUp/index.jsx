@@ -26,7 +26,7 @@ function SignUp() {
         </div>
 
         <form className="col-12 col-md-6 py-4 px-3">
-          <h4 className="signup-title text-center py-2 mb-3">Sign Up</h4>
+          <h4 className="signup-title text-center py-2 mb-3">Đăng ký</h4>
           <div className="form-floating mb-3">
             <input
               type="text"
@@ -68,7 +68,7 @@ function SignUp() {
             <label htmlFor="password">Mật khẩu</label>
           </div>
           <div className="text-center">
-            <button className="signup-btn rounded-3" onClick={() => {handleSignUp()}}>Sign Up</button>
+            <button className="signup-btn rounded-3" onClick={() => {handleSignUp()}}>Đăng ký</button>
           </div>
           <div className="text-center mt-3">
             Bạn đã có tài khoản ? <Link to="/login">Đăng nhập</Link>
