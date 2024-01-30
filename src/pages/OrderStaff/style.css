@@ -8,6 +8,7 @@
   height: 1024px;
   position: relative;
   overflow: hidden;
+  background-color: #F4E0C7;
 }
 .bi-people-circle {
   width: 24px;
@@ -221,7 +222,7 @@
   top: 160px;
 }
 .rectangle-12 {
-  background: #d9d9d9;
+  background: #9e826c;
   width: 303px;
   height: 40px;
   position: absolute;
@@ -395,7 +396,7 @@
     top: 315px; */
   }
 .rectangle-34 {
-  background: #d9d9d9;
+  background: #9e826c;
   width: 143px;
   height: 142px;
   position: absolute;
@@ -403,7 +404,7 @@
   top: 343px;
 }
 .rectangle-33 {
-  background: #d9d9d9;
+  background: #9e826c;
   width: 143px;
   height: 142px;
   position: absolute;
@@ -411,7 +412,7 @@
   top: 343px;
 }
 .rectangle-32 {
-  background: #d9d9d9;
+  background: #9e826c;
   width: 143px;
   height: 142px;
   position: absolute;
@@ -419,7 +420,7 @@
   top: 343px;
 }
 .rectangle-31 {
-  background-color: #d9d9d9;
+  background-color: #9e826c;
   width: 143px;
   height: 142px;
   position: absolute;
@@ -448,7 +449,7 @@
     top: 315px;
   }
 .rectangle-25 {
-  background: #d9d9d9;
+  background: #9e826c;
   width: 143px;
   height: 142px;
   position: absolute;
@@ -464,7 +465,7 @@
   object-fit: cover;
 }
 .rectangle-37 {
-  background: #d9d9d9;
+  background: #9e826c;
   width: 143px;
   height: 142px;
   position: absolute;
@@ -472,7 +473,7 @@
   top: 610px;
 }
 .rectangle-36 {
-  background: #d9d9d9;
+  background: #9e826c;
   width: 143px;
   height: 142px;
   position: absolute;
@@ -498,7 +499,7 @@
   top: 759px;
 }
 .rectangle-26 {
-  background: #d9d9d9;
+  background: #9e826c;
   width: 143px;
   height: 142px;
   position: absolute;
@@ -506,7 +507,7 @@
   top: 790px;
 }
 .rectangle-38 {
-  background: #d9d9d9;
+  background: #9e826c;
   width: 143px;
   height: 142px;
   position: absolute;
@@ -514,7 +515,7 @@
   top: 790px;
 }
 .rectangle-39 {
-  background: #d9d9d9;
+  background: #9e826c;
   width: 143px;
   height: 142px;
   position: absolute;
@@ -522,7 +523,7 @@
   top: 788px;
 }
 .rectangle-40 {
-  background: #d9d9d9;
+  background: #9e826c;
   width: 143px;
   height: 142px;
   position: absolute;
@@ -530,7 +531,7 @@
   top: 790px;
 }
 .rectangle-18 {
-  background: #d9d9d9;
+  background: #9e826c;
   width: 668px;
   height: 61px;
   position: absolute;
@@ -539,7 +540,7 @@
   margin-top: 1px;
 }
 .rectangle-22 {
-  background: #d9d9d9;
+  background: #9e826c;
   width: 629px;
   height: 58px;
   position: absolute;
@@ -557,7 +558,7 @@
   top: 96px;
 }
 .rectangle-23 {
-  background: #d9d9d9;
+  background: #9e826c;
   width: 629px;
   height: 58px;
   position: absolute;
@@ -597,7 +598,7 @@
   transform: rotate(0deg) scale(1, 1);
 }
 .rectangle-27 {
-  background: #f4e0c7;
+  background: #9e826c;
   width: 100%;
   height: 74px;
   position: absolute;
@@ -627,7 +628,7 @@
   transform: rotate(90deg) scale(1, 1);
 }
 .rectangle-28 {
-  background: #d9d9d9;
+  background: #9e826c;
   width: 303px;
   height: 61px;
   position: absolute;
