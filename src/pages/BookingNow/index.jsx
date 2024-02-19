@@ -1,8 +1,65 @@
 import React from "react";
 import "./style.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import Button from "@mui/material/Button";
+import { Link, useNavigate } from "react-router-dom";
 function BookingNow() {
   return (
     <div class="desktop-8">
+      <div className="headers">
+        <div className="header_left">
+          <img src="../asset/logo3.png" alt="" />
+          
+        </div>
+        <div className="header-center">
+          <ul className="header-list">
+            <li>
+              <a href="/">TRANG CHỦ</a>
+            </li>
+            <li>
+              <a href="#">GIỚI THIỆU</a>
+            </li>
+            <li>
+              <a href="#">CHI NHÁNH</a>
+            </li>
+            <li>
+              <a href="#">THỰC ĐƠN</a>
+            </li>
+            <li>
+              <a href="#">MÈO</a>
+            </li>
+            <li>
+              <a href="/bookingnow">ĐẶT BÀN</a>
+            </li>
+            <li>
+              <a href="#">THẺ</a>
+            </li>
+          </ul>
+        </div>
+        <div className="header-right">
+          <Button
+            variant="outlined"
+            href="#outlined-buttons"
+            style={{
+              backgroundColor: "#9e826c",
+              color: "white",
+              borderColor: "#9e826c",
+            }}
+          >
+            <Link
+              to="/login"
+              style={{ textDecoration: "none", color: "inherit" }}
+            >
+              Đăng nhập
+            </Link>
+          </Button>
+          <div className="input-wrapper">
+            <FontAwesomeIcon icon={faSearch} />
+            <input type="text" placeholder="Tìm kiếm..." />
+          </div>
+        </div>
+      </div>
       <div class="t-b-n">Đặt bàn</div>
       <div class="ch-n-a-i-m">Chọn địa điểm</div>
       <div class="rectangle-108"></div>

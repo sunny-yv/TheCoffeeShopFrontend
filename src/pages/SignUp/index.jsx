@@ -1,6 +1,9 @@
 import React, { useState } from 'react'
 import "./style.css"
 import { Link } from 'react-router-dom';
+import Button from "@mui/material/Button";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSearch } from "@fortawesome/free-solid-svg-icons";
 function SignUp() {
 
     const [email, setEmail] = useState();
@@ -16,6 +19,59 @@ function SignUp() {
 
   return (
     <div className="row g-0 vh-100 justify-content-center align-items-center signup-container">
+      <div className="headers">
+        <div className="header_left">
+          <img src="../asset/logo3.png" alt="" />
+          
+        </div>
+        <div className="header-center">
+          <ul className="header-list">
+            <li>
+              <a href="/">TRANG CHỦ</a>
+            </li>
+            <li>
+              <a href="#">GIỚI THIỆU</a>
+            </li>
+            <li>
+              <a href="#">CHI NHÁNH</a>
+            </li>
+            <li>
+              <a href="#">THỰC ĐƠN</a>
+            </li>
+            <li>
+              <a href="#">MÈO</a>
+            </li>
+            <li>
+              <a href="/bookingnow">ĐẶT BÀN</a>
+            </li>
+            <li>
+              <a href="#">THẺ</a>
+            </li>
+          </ul>
+        </div>
+        <div className="header-right">
+          <Button
+            variant="outlined"
+            href="#outlined-buttons"
+            style={{
+              backgroundColor: "#9e826c",
+              color: "white",
+              borderColor: "#9e826c",
+            }}
+          >
+            <Link
+              to="/login"
+              style={{ textDecoration: "none", color: "inherit" }}
+            >
+              Đăng nhập
+            </Link>
+          </Button>
+          <div className="input-wrapper">
+            <FontAwesomeIcon icon={faSearch} />
+            <input type="text" placeholder="Tìm kiếm..." />
+          </div>
+        </div>
+      </div>
       <div className="col-10 row g-0 align-items-center">
         <div className="d-none d-md-block col-6">
           <img
