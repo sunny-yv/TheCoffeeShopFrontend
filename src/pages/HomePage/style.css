@@ -1,9 +1,12 @@
 .home-page {
-  display: flex;
   justify-content: center;
   align-items: center;
-  height: 2000px;
+  height: 2200px;
   width: auto;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  position: relative;
 }
 .headers {
   width: 100%;
@@ -15,6 +18,7 @@
   top: 0;
   left: 0;
   z-index: 100;
+  margin-top: auto;
 }
 .header_left {
   display: flex;
@@ -78,7 +82,6 @@ input:focus {
   display: flex;
   justify-content: center;
   margin-bottom: 50px;
-  
 }
 .image-location > img {
   display: inline-block;
@@ -86,20 +89,19 @@ input:focus {
   flex-direction: row;
   margin-left: 100px;
 }
-.image-location:hover > img{
+.image-location:hover > img {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
 .product > h3 {
   align-items: center;
   display: flex;
   justify-content: center;
- 
 }
 .product > img {
   align-items: center;
   display: flex;
   justify-content: center;
- margin-top: 80px;
+  margin-top: 80px;
 }
 .card-container {
   display: flex;
@@ -121,7 +123,7 @@ input:focus {
   width: 100%;
   height: auto;
 }
-.img-boss{
+.img-boss {
   background-image: url("C:\Users\Admin\Desktop\Frontend\public\asset\nenanh.png");
   background-size: cover;
   background-position: center;
@@ -141,4 +143,17 @@ input:focus {
   flex-direction: row;
   margin-top: 20px;
   margin-left: 24px;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: antiquewhite;
+  align-items: center;
+  display: flex;
+  height: 250px;
+}
+.footer-left{
+  margin: 0 50px;
 }

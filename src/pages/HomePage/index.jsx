@@ -20,7 +20,6 @@ function HomePage() {
       <div className="headers">
         <div className="header_left">
           <img src="../asset/logo3.png" alt="" />
-          
         </div>
         <div className="header-center">
           <ul className="header-list">
@@ -146,6 +145,24 @@ function HomePage() {
           <img src="../asset/douong.jpeg" alt="" />
 
           <img src="../asset/douong.jpeg" alt="" />
+        </div>
+      </div>
+      <div className="footer">
+        <div className="footer-left">
+          <h3>Giới thiệu</h3>
+          <p>Sản phẩm</p>
+          <p>Cửa hàng</p>
+        </div>
+        <div className="footer-right">
+          <h3>Liên hệ</h3>
+          <p>
+            Cửa hàng 1: 250, Trần Hưng Đạo, P. Nguyễn Cư Trinh, Q. 1, Tp. Hồ Chí
+            Minh 0981245698
+          </p>
+          <p>
+            Cửa hàng 2: 135 Hoàng Hoa Thám, Phường 13, Tân Bình, Tp. Hồ Chí Minh
+            0901663508
+          </p>
         </div>
       </div>
     </div>
