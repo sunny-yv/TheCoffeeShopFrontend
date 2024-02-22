@@ -238,4 +238,26 @@
   align-items: center;
   margin-top: 150px;
   width: 100%;
+  padding: 70px;
+}
+.text-location-left {
+  width: 60%;
+  margin-left: 20px;
+}
+.text-location-left > button {
+  color: #fff;
+  text-align: left;
+  border-radius: 10px;
+  border: none;
+  margin-left: 600px;
+  padding: 15px 32px;
+  font-size: 30px;
+  text-align: center;
+  cursor: pointer;
+  background-color: rgb(158, 130, 108);
+  text-decoration: none;
+}
+.text-location-right {
+  width: 30%;
+  margin-left: 50px;
 }
