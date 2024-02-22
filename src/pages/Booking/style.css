@@ -1,0 +1,13 @@
+.booking {
+    display: flex;
+    justify-content: baseline;
+    align-items: center;
+    padding: 50px;
+}
+.title{
+    text-align: center;
+}
+.button-booking-left{
+    margin: 20px;
+    text-align: center;
+}

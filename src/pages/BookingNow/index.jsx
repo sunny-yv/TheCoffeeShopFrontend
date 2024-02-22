@@ -4,62 +4,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import Button from "@mui/material/Button";
 import { Link, useNavigate } from "react-router-dom";
+import Header from "../../components/Header";
+import Footer from "../../components/Footer";
 function BookingNow() {
   return (
     <div class="desktop-8">
-      <div className="headers">
-        <div className="header_left">
-          <img src="../asset/logo3.png" alt="" />
-          
-        </div>
-        <div className="header-center">
-          <ul className="header-list">
-            <li>
-              <a href="/">TRANG CHỦ</a>
-            </li>
-            <li>
-              <a href="#">GIỚI THIỆU</a>
-            </li>
-            <li>
-              <a href="#">CHI NHÁNH</a>
-            </li>
-            <li>
-              <a href="#">THỰC ĐƠN</a>
-            </li>
-            <li>
-              <a href="#">MÈO</a>
-            </li>
-            <li>
-              <a href="/bookingnow">ĐẶT BÀN</a>
-            </li>
-            <li>
-              <a href="#">THẺ</a>
-            </li>
-          </ul>
-        </div>
-        <div className="header-right">
-          <Button
-            variant="outlined"
-            href="#outlined-buttons"
-            style={{
-              backgroundColor: "#9e826c",
-              color: "white",
-              borderColor: "#9e826c",
-            }}
-          >
-            <Link
-              to="/login"
-              style={{ textDecoration: "none", color: "inherit" }}
-            >
-              Đăng nhập
-            </Link>
-          </Button>
-          <div className="input-wrapper">
-            <FontAwesomeIcon icon={faSearch} />
-            <input type="text" placeholder="Tìm kiếm..." />
-          </div>
-        </div>
-      </div>
+      <Header />
       <div class="t-b-n">Đặt bàn</div>
       <div class="ch-n-a-i-m">Chọn địa điểm</div>
       <div class="rectangle-108"></div>
@@ -70,6 +20,7 @@ function BookingNow() {
       <div class="chi-nh-nh-3">Chi nhánh 3</div>
       <div class="chi-nh-nh-4">Chi nhánh 4</div>
       <div class="chi-nh-nh-2">Chi nhánh 2</div>
+
       <img class="rectangle-115" src="../asset/cafethucung.png" />
       <div class="rectangle-116"></div>
       <div class="tr-c-khi-b-n-t">TRƯỚC KHI BẠN ĐẶT</div>
@@ -77,6 +28,7 @@ function BookingNow() {
         Việc đặt chỗ của bạn sẽ chỉ được xác nhận khi bạn nhận được email xác
         nhận.
       </div>
+
       <div class="m-b-o-s-c-kh-e-v-th-tr-ng-t-t-cho-m-o-c-a-ch-ng-t-i-c-duy-tr-ti-u-chu-n-cao-nh-t-ch-ng-t-i-ph-i-tr-ph-ph-c-l-i-7-cho-m-i-ng-i-l-n-v-5-cho-m-i-tr-em-th-i-gian-t-ch-l-m-t-gi-nh-ng-n-u-b-n-mu-n-t-ch-l-u-h-n-vui-l-ng-li-n-h-v-i-ch-ng-t-i">
         Để đảm bảo sức khỏe và thể trạng tốt cho mèo của chúng tôi được duy trì
         ở tiêu chuẩn cao nhất, chúng tôi phải trả phí phúc lợi £7 cho mỗi người

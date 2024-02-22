@@ -1,7 +1,7 @@
 .home-page {
   justify-content: center;
   align-items: center;
-  height: 2200px;
+  
   width: auto;
   display: flex;
   flex-direction: column;
@@ -76,6 +76,13 @@ input:focus {
   justify-content: center;
   display: flex;
   flex-direction: column;
+}
+.location > img {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  margin-top: 80px;
+  margin-left: 560px;
 }
 .location > h3 {
   align-items: center;
@@ -156,4 +163,16 @@ input:focus {
 }
 .footer-left{
   margin: 0 50px;
+}
+.main-footer {
+  color: white;
+  background-color: #dc3545;
+  padding-top: 3em;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
+.list-unstyled > li > a{
+  text-decoration: none;
+  color: #fff;
 }

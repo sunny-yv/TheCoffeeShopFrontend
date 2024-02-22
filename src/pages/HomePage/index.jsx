@@ -1,12 +1,10 @@
 import React from "react";
 import "./style.css";
-import Button from "@mui/material/Button";
-import { Link, useNavigate } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import Header from "../../components/Header";
+import Footer from "../../components/Footer";
 function HomePage() {
   // var settings = {
   //   dots: true,
@@ -17,7 +15,8 @@ function HomePage() {
   // };
   return (
     <div className="home-page">
-      <div className="headers">
+      <Header />
+      {/* <div className="headers">
         <div className="header_left">
           <img src="../asset/logo3.png" alt="" />
         </div>
@@ -68,7 +67,7 @@ function HomePage() {
             <input type="text" placeholder="Tìm kiếm..." />
           </div>
         </div>
-      </div>
+      </div> */}
       <div className="body">
         {/* <div className="slider-slick">
           <Slider {...settings}>
@@ -147,24 +146,36 @@ function HomePage() {
           <img src="../asset/douong.jpeg" alt="" />
         </div>
       </div>
-      <div className="footer">
-        <div className="footer-left">
-          <h3>Giới thiệu</h3>
-          <p>Sản phẩm</p>
-          <p>Cửa hàng</p>
+      {/* <div className="main-footer">
+        <div className="container">
+          <div className="row">
+            <div className="col">
+              <h4>Giới thiệu</h4>
+              <ui className="list-unstyled">
+                <li><a href="/">Sản Phẩm</a></li>
+                <li><a href="/location">Cửa hàng</a></li>
+              </ui>
+            </div>
+
+            <div className="col">
+              <h4>Liên hệ</h4>
+              <ui className="list-unstyled">
+                <li>0987570351</li>
+                <li>hanhnguyen@gmail.com</li>
+               
+              </ui>
+            </div>
+          </div>
+          <hr />
+          <div className="row">
+            <p className="col-sm">
+              &copy;{new Date().getFullYear()} COFFEE CAT | Mọi quyền được bảo lưu 
+              | Điều khoản Dịch vụ | Quyền riêng tư
+            </p>
+          </div>
         </div>
-        <div className="footer-right">
-          <h3>Liên hệ</h3>
-          <p>
-            Cửa hàng 1: 250, Trần Hưng Đạo, P. Nguyễn Cư Trinh, Q. 1, Tp. Hồ Chí
-            Minh 0981245698
-          </p>
-          <p>
-            Cửa hàng 2: 135 Hoàng Hoa Thám, Phường 13, Tân Bình, Tp. Hồ Chí Minh
-            0901663508
-          </p>
-        </div>
-      </div>
+      </div> */}
+      <Footer/>
     </div>
   );
 }

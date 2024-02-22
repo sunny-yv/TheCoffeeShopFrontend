@@ -1,8 +1,11 @@
 import React from "react";
 import "./style.css";
+import Header from "../../components/Header";
+import Footer from "../../components/Footer";
 function OrderStaff() {
   return (
     <div class="desktop-2">
+      <Header/>
       <div class="bi-people-circle">
         <svg
           class="group"
@@ -91,7 +94,9 @@ function OrderStaff() {
       <div class="matcha">Matcha</div>
       <div class="kem-tr-ng-n-ng2">KEM TRỨNG NƯỚNG</div>
       <div class="b-n-t-i-ch-t-i-ch">Bán tại chỗ - TẠI CHỖ</div>
+      
     </div>
+    
   );
 }
 

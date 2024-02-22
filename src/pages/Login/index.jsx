@@ -5,6 +5,8 @@ import axios from "axios";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Button from "@mui/material/Button";
+import Footer from "../../components/Footer";
+import Header from "../../components/Header";
 function Login() {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
@@ -26,58 +28,7 @@ function Login() {
 
   return (
     <div className="row g-0 vh-100 justify-content-center align-items-center login-container">
-      <div className="headers">
-        <div className="header_left">
-          <img src="../asset/logo3.png" alt="" />
-        </div>
-        <div className="header-center">
-          <ul className="header-list">
-            <li>
-              <a href="/">TRANG CHỦ</a>
-            </li>
-            <li>
-              <a href="#">GIỚI THIỆU</a>
-            </li>
-            <li>
-              <a href="#">CHI NHÁNH</a>
-            </li>
-            <li>
-              <a href="#">THỰC ĐƠN</a>
-            </li>
-            <li>
-              <a href="#">MÈO</a>
-            </li>
-            <li>
-              <a href="/bookingnow">ĐẶT BÀN</a>
-            </li>
-            <li>
-              <a href="#">THẺ</a>
-            </li>
-          </ul>
-        </div>
-        <div className="header-right">
-          <Button
-            variant="outlined"
-            href="#outlined-buttons"
-            style={{
-              backgroundColor: "#9e826c",
-              color: "white",
-              borderColor: "#9e826c",
-            }}
-          >
-            <Link
-              to="/login"
-              style={{ textDecoration: "none", color: "inherit" }}
-            >
-              Đăng nhập
-            </Link>
-          </Button>
-          <div className="input-wrapper">
-            <FontAwesomeIcon icon={faSearch} />
-            <input type="text" placeholder="Tìm kiếm..." />
-          </div>
-        </div>
-      </div>
+      <Header/>
       <div className="col-10 row g-0 align-items-center">
         <div className="d-none d-md-block col-6">
           <img
@@ -129,6 +80,7 @@ function Login() {
           </div>
         </form>
       </div>
+      <Footer/>
     </div>
   );
 }

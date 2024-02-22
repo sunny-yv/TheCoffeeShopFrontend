@@ -232,17 +232,24 @@
   top: 1827px;
   object-fit: cover;
 }
-.location-one {
+.location {
+  justify-content: center;
+  align-items: center;
+  margin-top: 100px;
+  width: 100%;
+}
+.body-location{
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 150px;
-  width: 100%;
-  padding: 70px;
 }
 .text-location-left {
   width: 60%;
   margin-left: 20px;
+}
+.text-location-left > h3 {
+  font-size: 50px;
+  
 }
 .text-location-left > button {
   color: #fff;
@@ -260,4 +267,17 @@
 .text-location-right {
   width: 30%;
   margin-left: 50px;
+}
+
+.img-location{
+  display: flex;
+  flex-direction: row;
+  max-width: 100%;
+  height: auto;
+ 
+}
+.img-location > img {
+  width: 23.5%;
+  margin: 11px;
+padding: 10px;
 }
