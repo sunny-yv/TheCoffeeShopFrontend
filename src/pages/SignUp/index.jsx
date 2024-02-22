@@ -25,9 +25,9 @@ function SignUp() {
       <div className="col-10 row g-0 align-items-center">
         <div className="d-none d-md-block col-6">
           <img
-            src="https://www.shutterstock.com/shutterstock/photos/2273748919/display_1500/stock-vector-turkish-cat-with-coffee-cup-muslim-cat-with-turban-watercolor-vector-illustration-for-coffee-2273748919.jpg"
+            src="../asset/signup.png"
             alt=""
-            className="img-fluid"
+            className="img-fluid w-100 mt-4"
           />
         </div>
 

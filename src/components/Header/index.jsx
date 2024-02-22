@@ -3,11 +3,12 @@ import Button from "@mui/material/Button";
 import { Link, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import "./style.css";
 function Header() {
   return (
     <div className="headers">
         <div className="header_left">
-          <img src="../asset/logo3.png" alt="" />
+          <img src="../asset/logo2.png" alt="" />
         </div>
         <div className="header-center">
           <ul className="header-list">
@@ -27,7 +28,7 @@ function Header() {
               <a href="#">MÈO</a>
             </li>
             <li>
-              <a href="/bookingnow">ĐẶT BÀN</a>
+              <a href="/booking">ĐẶT BÀN</a>
             </li>
             <li>
               <a href="#">THẺ</a>
@@ -39,7 +40,7 @@ function Header() {
             variant="outlined"
             href="#outlined-buttons"
             style={{
-              backgroundColor: "#9e826c",
+              backgroundColor: "#230050",
               color: "white",
               borderColor: "#9e826c",
             }}

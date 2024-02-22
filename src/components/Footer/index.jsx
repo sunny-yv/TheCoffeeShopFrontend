@@ -1,6 +1,6 @@
 import React from "react";
-
-function index() {
+import "./style.css";
+function Footer() {
   return (
     <div className="main-footer">
       <div className="container">
@@ -37,4 +37,4 @@ function index() {
   );
 }
 
-export default index;
+export default Footer;

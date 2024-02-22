@@ -32,9 +32,9 @@ function Login() {
       <div className="col-10 row g-0 align-items-center">
         <div className="d-none d-md-block col-6">
           <img
-            src="https://www.shutterstock.com/shutterstock/photos/2275429855/display_1500/stock-vector-turkish-cat-with-coffee-cup-watercolor-vector-illustration-for-coffee-houses-can-be-used-for-menu-2275429855.jpg"
+            src="../asset/login.png"
             alt=""
-            className="img-fluid"
+            className="img-fluid w-100 mt-4"
           />
         </div>
 

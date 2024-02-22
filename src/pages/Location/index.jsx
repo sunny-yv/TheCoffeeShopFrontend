@@ -56,7 +56,7 @@ function index() {
             }}
           >
             <Link
-              to="/bookingnow"
+              to="/booking"
               style={{ textDecoration: "none", color: "inherit" }}
             >
               Đặt bàn

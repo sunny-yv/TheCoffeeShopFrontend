@@ -8,110 +8,69 @@ import { size } from "@floating-ui/core";
 
 function Booking() {
   return (
-    <div className="booking">
-      <div className="booking-left">
-        <div className="title">
-          <h1>Đặt bàn</h1>
-          <h2>Chọn địa điểm</h2>
-        </div>
-        <div className="button-booking-left">
-          <div className="button-top">
-            <Button
-              variant="outlined"
-              href="#outlined-buttons"
-              style={{
-                backgroundColor: "#9e826c",
-                color: "white",
-                borderColor: "#9e826c",
-                padding: "20px",
-                fontSize: "20px",
-                borderRadius: "40px",
-              }}
-            >
-              <Link
-                to="/location"
-                style={{ textDecoration: "none", color: "inherit" }}
-              >
-                Chi nhánh 1
-              </Link>
-            </Button>
-            <Button
-              variant="outlined"
-              href="#outlined-buttons"
-              style={{
-                backgroundColor: "#9e826c",
-                color: "white",
-                borderColor: "#9e826c",
-                padding: "20px",
-                fontSize: "20px",
-                borderRadius: "40px",
-              }}
-            >
-              <Link
-                to="/location"
-                style={{ textDecoration: "none", color: "inherit" }}
-              >
-                Chi nhánh 2
-              </Link>
-            </Button>
+    <div className="booking-page">
+      <Header />
+      <div className="booking">
+        <div className="booking-left">
+          <div className="title">
+            <h1>Đặt bàn</h1>
+            <h2>Chọn địa điểm</h2>
           </div>
-          <div className="button-bottom"> 
-            <Button
-              variant="outlined"
-              href="#outlined-buttons"
-              style={{
-                backgroundColor: "#9e826c",
-                color: "white",
-                borderColor: "#9e826c",
-                padding: "20px",
-                fontSize: "20px",
-                borderRadius: "40px",
-              }}
-            >
+          <div className="button-booking-left">
+            <div className="button-top">
               <Link
                 to="/location"
                 style={{ textDecoration: "none", color: "inherit" }}
               >
-                Chi nhánh 3
+                <button class="button">Chi nhánh 1</button>
               </Link>
-            </Button>
-            <Button
-              variant="outlined"
-              href="#outlined-buttons"
-              style={{
-                backgroundColor: "#9e826c",
-                color: "white",
-                borderColor: "#9e826c",
-                padding: "20px",
-                fontSize: "20px",
-                borderRadius: "40px",
-              }}
-            >
               <Link
                 to="/location"
                 style={{ textDecoration: "none", color: "inherit" }}
               >
-                Chi nhánh 4
+                <button class="button">Chi nhánh 2</button>
               </Link>
-            </Button>
+            </div>
+            <div className="button-bottom">
+              <Link
+                to="/location"
+                style={{ textDecoration: "none", color: "inherit" }}
+              >
+                <button class="button">Chi nhánh 3</button>
+              </Link>
+              <Link
+                to="/location"
+                style={{ textDecoration: "none", color: "inherit" }}
+              >
+                <button class="button">Chi nhánh 4</button>
+              </Link>
+            </div>
+          </div>
+          <div className="image">
+            <img src="../asset/datban.webp" alt="" />
           </div>
         </div>
-        <img src="../asset/datban.webp" alt="" />
+        <div className="booking-right">
+          <div className="title-final">
+            <h3>TRƯỚC KHI BẠN ĐẶT</h3>
+          </div>
+          <div className="context-final">
+            <p>
+              Để đảm bảo sức khỏe và thể trạng tốt cho mèo của chúng tôi được
+              duy trì ở tiêu chuẩn cao nhất, chúng tôi phải trả phí phúc lợi £7
+              cho mỗi người lớn và £5 cho mỗi trẻ em. Thời gian đặt chỗ là một
+              giờ, nhưng nếu bạn muốn đặt chỗ lâu hơn, vui lòng liên hệ với
+              chúng tôi.
+            </p>
+            <br />
+            <p>
+              Việc đặt chỗ của bạn sẽ chỉ được xác nhận khi bạn nhận được email
+              xác nhận.
+            </p>
+          </div>
+        </div>
       </div>
-      <div className="booking-right">
-        <h3>TRƯỚC KHI BẠN ĐẶT</h3>
-        <p>
-          Để đảm bảo sức khỏe và thể trạng tốt cho mèo của chúng tôi được duy
-          trì ở tiêu chuẩn cao nhất, chúng tôi phải trả phí phúc lợi £7 cho mỗi
-          người lớn và £5 cho mỗi trẻ em. Thời gian đặt chỗ là một giờ, nhưng
-          nếu bạn muốn đặt chỗ lâu hơn, vui lòng liên hệ với chúng tôi.
-        </p>
-        <br />
-        <p>
-          Việc đặt chỗ của bạn sẽ chỉ được xác nhận khi bạn nhận được email xác
-          nhận.
-        </p>
-      </div>
+      <Footer />
     </div>
   );
 }
