@@ -16,7 +16,7 @@ function Header() {
               <a href="/">TRANG CHỦ</a>
             </li>
             <li>
-              <a href="#">GIỚI THIỆU</a>
+              <a href="/introductionpage">GIỚI THIỆU</a>
             </li>
             <li>
               <a href="/location">CHI NHÁNH</a>

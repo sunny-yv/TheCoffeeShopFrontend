@@ -45,24 +45,6 @@ function SimpleSlider() {
   return (
     <div className="container">
       <Slider {...settings}>
-        {/* <div>
-          <img src="../asset/cat4.jpg" alt="" className="w-50" />
-        </div>
-        <div>
-          <img src="../asset/cat5.jpg" alt="" className="w-50" />
-        </div>
-        <div>
-          <img src="../asset/cat7.jpg" alt="" className="w-50" />
-        </div>
-        <div>
-          <img src="../asset/cat9.jpg" alt="" className="w-50" />
-        </div>
-        <div>
-          <img src="../asset/cat10.jpg" alt="" className="w-50" />
-        </div>
-        <div>
-          <img src="../asset/cat14.jpg" alt="" className="w-50" />
-        </div> */}
         <div>
           <img src="../asset/meotrangchu.png" alt="" className="w-50" />
         </div>

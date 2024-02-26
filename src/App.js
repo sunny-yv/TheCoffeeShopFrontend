@@ -6,7 +6,7 @@ import BookingStaff from "./pages/BookingStaff";
 import Location from "./pages/Location";
 import HomePage from "./pages/HomePage";
 import Booking from "./pages/Booking";
-
+import IntroductionPage from "./pages/IntroductionPage";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 function App() {
@@ -21,6 +21,7 @@ function App() {
         <Route path="/location" element={<Location />} />
         <Route path="/bookingstaff" element={<BookingStaff />} />
         <Route path="/booking" element={<Booking />} />
+        <Route path="/introductionpage" element={<IntroductionPage />} />
       </Routes>
     </BrowserRouter>
   );
