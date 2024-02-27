@@ -1,0 +1,2 @@
+
+export const SEARCH_CONTACTS = "SEARCH_CONTACTS";

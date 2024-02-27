@@ -12,12 +12,13 @@ function SignUp() {
     const [password, setPassword] = useState();
     const [username, setUsername] = useState();
     const [phone, setPhone] = useState();
+    const [confirmPassword, setConfirmPassword] = useState();
 
     const handleSignUp = () =>{
         alert("Sign up successful");
     }
 
-
+   
 
   return (
     <div className="row g-0 vh-100 justify-content-center align-items-center signup-container">
@@ -33,7 +34,7 @@ function SignUp() {
 
         <form className="col-12 col-md-6 py-4 px-3">
           <h4 className="signup-title text-center py-2 mb-3">Đăng ký</h4>
-          <div className="form-floating mb-3">
+          {/* <div className="form-floating mb-3">
             <input
               type="text"
               className="form-control"
@@ -42,8 +43,8 @@ function SignUp() {
               onChange={(e) => {setUsername(e.target.value)}}
             />
             <label htmlFor="username">Tên đăng nhập</label>
-          </div>
-          <div className="form-floating mb-3">
+          </div> */}
+          {/* <div className="form-floating mb-3">
             <input
               type="text"
               className="form-control"
@@ -52,7 +53,7 @@ function SignUp() {
               onChange={(e) => {setPhone(e.target.value)}}
             />
             <label htmlFor="phone">Số điện thoại</label>
-          </div>
+          </div> */}
           <div className="form-floating mb-3">
             <input
               type="email"
@@ -72,6 +73,16 @@ function SignUp() {
               onChange={(e) => {setPassword(e.target.value)}}
             />
             <label htmlFor="password">Mật khẩu</label>
+          </div>
+          <div className="form-floating mb-3">
+            <input
+              type="password"
+              className="form-control"
+              id="password"
+              placeholder="password"
+              onChange={(e) => {setConfirmPassword(e.target.value)}}
+            />
+            <label htmlFor="password">Nhập lại mật khẩu</label>
           </div>
           <div className="text-center">
             <button className="signup-btn rounded-3" onClick={() => {handleSignUp()}}>Đăng ký</button>
