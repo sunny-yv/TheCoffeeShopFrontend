@@ -8,11 +8,14 @@ import { useAuth } from "../../contexts/auth";
 import "./style.css";
 import { Chip } from "@mui/material";
 import { Link } from "react-router-dom";
+import Dropdown from "react-bootstrap/Dropdown";
 
 function Header() {
   const navigate = useNavigate();
   const userData = useUserData();
-  const { user, logout } = useAuth();
+  const { logout } = useAuth();
+ 
+
   const handleLogout = async () => {
     await logout();
     navigate("/");
@@ -31,14 +34,22 @@ function Header() {
           <li>
             <a href="#">GIỚI THIỆU</a>
           </li>
-          <li>
-            <a href="/location">CHI NHÁNH</a>
-          </li>
+          <Dropdown>
+            <Dropdown.Toggle variant="success" id="dropdown-basic">
+              CHI NHÁNH
+            </Dropdown.Toggle>
+
+            <Dropdown.Menu>
+              <Dropdown.Item href="/location">Chi nhánh 1</Dropdown.Item>
+              <Dropdown.Item href="/location2">Chi nhánh 2</Dropdown.Item>
+              <Dropdown.Item href="/location3">Chi nhánh 3</Dropdown.Item>
+            </Dropdown.Menu>
+          </Dropdown>
           <li>
             <a href="#">THỰC ĐƠN</a>
           </li>
           <li>
-            <a href="#">MÈO</a>
+            <a href="/cat">MÈO</a>
           </li>
           <li>
             <a href="/booking">ĐẶT BÀN</a>

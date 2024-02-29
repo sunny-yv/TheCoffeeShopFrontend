@@ -1,28 +1,53 @@
-import React, { useState } from 'react'
-import "./style.css"
-import { Link } from 'react-router-dom';
-import Button from "@mui/material/Button";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import React, { useState } from "react";
+import "./style.css";
+import { Link } from "react-router-dom";
+
 import Footer from "../../components/Footer";
 import Header from "../../components/Header";
+
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import LoadingButton from "@mui/lab/LoadingButton";
+import axios from "axios";
 function SignUp() {
+  const [loading, setLoading] = useState(false);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
+  const [passwordMatch, setPasswordMatch] = useState(true);
+  const navigate = useNavigate();
 
-    const [email, setEmail] = useState();
-    const [password, setPassword] = useState();
-    const [username, setUsername] = useState();
-    const [phone, setPhone] = useState();
-    const [confirmPassword, setConfirmPassword] = useState();
+  const handleConfirmPasswordChange = (e) => {
+    const { value } = e.target;
+    setConfirmPassword(value);
+    setPasswordMatch(value === password);
+  };
 
-    const handleSignUp = () =>{
-        alert("Sign up successful");
+  const handleRegister = async () => {
+    try {
+      if (!passwordMatch) {
+        setErrorMessage("Mật khẩu và xác nhận mật khẩu không khớp!");
+        return;
+      }
+
+      setLoading(true);
+      await axios.post(
+        "https://thecoffeeshopstore.azurewebsites.net/api/Accounts/Register",
+        { email, password }
+      );
+
+      toast("Đăng ký thành công", { type: "success" });
+      navigate("/");
+    } catch (error) {
+      toast("Đăng ký thất bại", { type: "error" });
+    } finally {
+      setLoading(false);
     }
-
-   
-
+  };
   return (
     <div className="row g-0 vh-100 justify-content-center align-items-center signup-container">
-      <Header/>
+      <Header />
       <div className="col-10 row g-0 align-items-center">
         <div className="d-none d-md-block col-6">
           <img
@@ -34,33 +59,15 @@ function SignUp() {
 
         <form className="col-12 col-md-6 py-4 px-3">
           <h4 className="signup-title text-center py-2 mb-3">Đăng ký</h4>
-          {/* <div className="form-floating mb-3">
-            <input
-              type="text"
-              className="form-control"
-              id="username"
-              placeholder="username"
-              onChange={(e) => {setUsername(e.target.value)}}
-            />
-            <label htmlFor="username">Tên đăng nhập</label>
-          </div> */}
-          {/* <div className="form-floating mb-3">
-            <input
-              type="text"
-              className="form-control"
-              id="phone"
-              placeholder="phone"
-              onChange={(e) => {setPhone(e.target.value)}}
-            />
-            <label htmlFor="phone">Số điện thoại</label>
-          </div> */}
           <div className="form-floating mb-3">
             <input
               type="email"
               className="form-control"
               id="email"
-              placeholder="email"
-              onChange={(e) => {setEmail(e.target.value)}}
+              placeholder="Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
             />
             <label htmlFor="email">Email</label>
           </div>
@@ -69,30 +76,49 @@ function SignUp() {
               type="password"
               className="form-control"
               id="password"
-              placeholder="password"
-              onChange={(e) => {setPassword(e.target.value)}}
+              placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
             />
             <label htmlFor="password">Mật khẩu</label>
           </div>
           <div className="form-floating mb-3">
             <input
               type="password"
-              className="form-control"
-              id="password"
-              placeholder="password"
-              onChange={(e) => {setConfirmPassword(e.target.value)}}
+              className={`form-control ${!passwordMatch && "is-invalid"}`}
+              id="confirmPassword"
+              placeholder="Confirm Password"
+              value={confirmPassword}
+              onChange={handleConfirmPasswordChange}
+              required
             />
-            <label htmlFor="password">Nhập lại mật khẩu</label>
+            <label htmlFor="confirmPassword">Nhập lại mật khẩu</label>
+            {!passwordMatch && (
+              <div className="invalid-feedback">
+                Mật khẩu và xác nhận mật khẩu không khớp
+              </div>
+            )}
           </div>
+          
           <div className="text-center">
-            <button className="signup-btn rounded-3" onClick={() => {handleSignUp()}}>Đăng ký</button>
+            {errorMessage && <p className="text-danger">{errorMessage}</p>}
+            <LoadingButton
+              className="login-btn rounded-3"
+              color="inherit"
+              loading={loading}
+              onClick={handleRegister}
+              disabled={!passwordMatch}
+            >
+              Đăng nhập
+            </LoadingButton>
           </div>
           <div className="text-center mt-3">
             Bạn đã có tài khoản ? <Link to="/login">Đăng nhập</Link>
           </div>
         </form>
       </div>
-      <Footer/>
+      <Footer />
     </div>
   );
 }
