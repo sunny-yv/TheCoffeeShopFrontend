@@ -55,13 +55,13 @@ function SimpleSlider() {
           <img src="../asset/meotrangchu3.png" alt="" className="w-50" />
         </div>
         <div>
-          <img src="../asset/meotrangchu4.png" alt="" className="w-50" />
+          <img src="../asset/meotrangchu4.1.png" alt="" className="w-50" />
         </div>
         <div>
-          <img src="../asset/meotrangchu5.png" alt="" className="w-50" />
+          <img src="../asset/meotrangchu5.1.png" alt="" className="w-50" />
         </div>
         <div>
-          <img src="../asset/meotrangchu6.png" alt="" className="w-50" />
+          <img src="../asset/meotrangchu6.1.png" alt="" className="w-50" />
         </div>
       </Slider>
     </div>

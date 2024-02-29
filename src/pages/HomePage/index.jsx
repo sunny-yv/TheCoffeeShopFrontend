@@ -37,7 +37,7 @@ function HomePage() {
             </div>
           </div>
           <div className="card">
-            <img src="../asset/douong.jpeg" alt="" />
+            <img src="../asset/thucanmeo1.jpg" alt="" />
             <div className="text-card">
               <h4>Thức ăn cho mèo</h4>
               <p>
@@ -46,7 +46,7 @@ function HomePage() {
             </div>
           </div>
           <div className="card">
-            <img src="../asset/douong.jpeg" alt="" />
+            <img src="../asset/dochoimeo1.jpg" alt="" />
             <div className="text-card">
               <h4>Đồ chơi cho mèo</h4>
               <p>

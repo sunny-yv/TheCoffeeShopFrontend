@@ -110,7 +110,7 @@ function SignUp() {
               onClick={handleRegister}
               disabled={!passwordMatch}
             >
-              Đăng nhập
+              Đăng ký
             </LoadingButton>
           </div>
           <div className="text-center mt-3">

@@ -32,7 +32,7 @@ function Header() {
             <a href="/">TRANG CHỦ</a>
           </li>
           <li>
-            <a href="#">GIỚI THIỆU</a>
+            <a href="/introduction">GIỚI THIỆU</a>
           </li>
           <Dropdown>
             <Dropdown.Toggle variant="success" id="dropdown-basic">

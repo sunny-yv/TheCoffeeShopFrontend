@@ -7,6 +7,31 @@ import { Link, useParams } from "react-router-dom";
 import "./style.css";
 
 function Cat() {
+  const cardStyles = {
+    border: "1px solid #ccc",
+    borderRadius: "8px",
+    textAlign: "center",
+    width: "300px",
+    height: "300px",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "space-between",
+  };
+
+  const imageStyles = {
+    maxWidth: "100%",
+    height: "260px",
+    marginBottom: "10px",
+    cursor: "pointer",
+  };
+  const linkStyles = {
+    textDecoration: "none",
+    // padding: "8px 16px",
+    borderRadius: "5px",
+    display: "inline-block",
+    transition: "background-color 0.3s",
+    color: "black",
+  };
   return (
     <div className="cat-page">
       <Header />
@@ -16,237 +41,89 @@ function Cat() {
       </div>
 
       <div
-        className="album"
         style={{
-          display: "flex",
-          flexWrap: "wrap",
+          display: "grid",
+          gridTemplateColumns: "repeat(4, 1fr)",
+          gap: "20px",
+          padding: "20px",
         }}
       >
-        <div
-          className="CoffeeShop"
-          style={{
-            width: "25%",
-          }}
-        >
-          <img
-            src="asset/allcat.jpg"
-            alt="Các Boss của nhà Donna"
-            style={{
-              width: "360px",
-              marginInline: "14%",
-              height: "360px",
-            }}
-          />
-          <a
-            className="active"
-            href="/allcat"
-            style={{
-              position: "initial",
-              width: "100%",
-              display: "inline-block",
-              color: "black",
-              textAlign: "center",
-              marginBottom: "20px",
-            }}
-          >
-            <span
-              style={{
-                fontSize: "120%",
-                margin: "12px",
-              }}
-            >
-              Boss của nhà Donna
-            </span>
+        <div style={cardStyles}>
+          <a href="/allcat" style={linkStyles}>
+            <img
+              src="asset/meotatcachinhanh.jpg"
+              alt="Image 1"
+              style={imageStyles}
+            />
+          </a>
+
+          <a href="/allcat" style={linkStyles}>
+            Boss của nhà Donna
           </a>
         </div>
+        <div style={cardStyles}>
+          <a href="/catshop1" style={linkStyles}>
+            <img
+              src="asset/meochinhanh1.jpg"
+              alt="Image 1"
+              style={imageStyles}
+            />
+          </a>
 
-        <div
-          className="CoffeeShop"
-          style={{
-            width: "25%",
-          }}
-        >
-          <img
-            src="asset/shop1.webp"
-            alt="Các Boss của chi nhánh 1 nhà Donna"
-            style={{
-              width: "360px",
-              marginInline: "14%",
-              height: "360px",
-            }}
-          />
-          <a
-            className="active"
-            href="/catshop1"
-            style={{
-              position: "initial",
-              width: "100%",
-              display: "inline-block",
-              color: "black",
-              textAlign: "center",
-              marginBottom: "20px",
-            }}
-          >
-            <span
-              style={{
-                fontSize: "120%",
-                margin: "12px",
-              }}
-            >
-              Boss của chi nhánh 1 nhà Donna
-            </span>
+          <a href="/catshop1" style={linkStyles}>
+            Boss của chi nhánh 1 nhà Donna
           </a>
         </div>
+        <div style={cardStyles}>
+          <a href="/catshop2" style={linkStyles}>
+            <img
+              src="asset/meochinhanh2.jpg"
+              alt="Image 1"
+              style={imageStyles}
+            />
+          </a>
 
-        <div
-          className="CoffeeShop"
-          style={{
-            width: "25%",
-          }}
-        >
-          <img
-            src="asset/shop2.jpg"
-            alt="Các Boss chi nhánh 2 nhà Donna"
-            style={{
-              width: "360px",
-              marginInline: "14%",
-              height: "360px",
-            }}
-          />
-          <a
-            className="active"
-            href="/catshop2"
-            style={{
-              position: "initial",
-              width: "100%",
-              display: "inline-block",
-              color: "black",
-              textAlign: "center",
-              marginBottom: "20px",
-            }}
-          >
-            <span
-              style={{
-                fontSize: "120%",
-                margin: "12px",
-              }}
-            >
-              Các Boss chi nhánh 2 nhà Donna
-            </span>
+          <a href="/catshop2" style={linkStyles}>
+            Boss của chi nhánh 2 nhà Donna
           </a>
         </div>
+        <div style={cardStyles}>
+          <a href="/catshop3" style={linkStyles}>
+            <img
+              src="asset/meochinhanh3.jpg"
+              alt="Image 1"
+              style={imageStyles}
+            />
+          </a>
 
-        <div
-          className="CoffeeShop"
-          style={{
-            width: "25%",
-          }}
-        >
-          <img
-            src="asset/shop3.jpg"
-            alt="Các Boss chi nhánh 3 nhà Donna"
-            style={{
-              width: "360px",
-              marginInline: "14%",
-              height: "360px",
-            }}
-          />
-          <a
-            className="active"
-            href="/catshop3"
-            style={{
-              position: "initial",
-              width: "100%",
-              display: "inline-block",
-              color: "black",
-              textAlign: "center",
-              marginBottom: "20px",
-            }}
-          >
-            <span
-              style={{
-                fontSize: "120%",
-                margin: "12px",
-              }}
-            >
-              Các Boss chi nhánh 3 nhà Donna
-            </span>
+          <a href="/catshop3" style={linkStyles}>
+            Boss của chi nhánh 3 nhà Donna
           </a>
         </div>
+        <div style={cardStyles}>
+          <a href="/catshop4" style={linkStyles}>
+            <img
+              src="asset/meochinhanh4.jpg"
+              alt="Image 1"
+              style={imageStyles}
+            />
+          </a>
 
-        <div
-          className="CoffeeShop"
-          style={{
-            width: "25%",
-          }}
-        >
-          <img
-            src="asset/shop4.png"
-            alt="Các Boss chi nhánh 4 nhà Donna"
-            style={{
-              width: "360px",
-              marginInline: "14%",
-              height: "360px",
-            }}
-          />
-          <a
-            className="active"
-            href="/catshop4"
-            style={{
-              position: "initial",
-              width: "100%",
-              display: "inline-block",
-              color: "black",
-              textAlign: "center",
-              marginBottom: "20px",
-            }}
-          >
-            <span
-              style={{
-                fontSize: "120%",
-                margin: "12px",
-              }}
-            >
-              Các Boss chi nhánh 4 nhà Donna
-            </span>
+          <a href="/catshop4" style={linkStyles}>
+            Boss của chi nhánh 4 nhà Donna
           </a>
         </div>
+        <div style={cardStyles}>
+          <a href="/catshop4" style={linkStyles}>
+            <img
+              src="asset/meochinhanh5.jpg"
+              alt="Image 1"
+              style={imageStyles}
+            />
+          </a>
 
-        <div
-          className="CoffeeShop"
-          style={{
-            width: "25%",
-          }}
-        >
-          <img
-            src="asset/shop5.webp"
-            alt="Các Boss chi nhánh 5 nhà Donna"
-            style={{
-              width: "360px",
-              marginInline: "14%",
-              height: "360px",
-            }}
-          />
-          <a
-            className="active"
-            href="/catshop5"
-            style={{
-              position: "initial",
-              width: "100%",
-              display: "inline-block",
-              color: "black",
-              textAlign: "center",
-              marginBottom: "20px",
-            }}
-          >
-            <span
-              style={{
-                fontSize: "120%",
-                margin: "12px",
-              }}
-            >
-              Các Boss chi nhánh 5 nhà Donna
-            </span>
+          <a href="/catshop4" style={linkStyles}>
+            Boss của chi nhánh 5 nhà Donna
           </a>
         </div>
       </div>

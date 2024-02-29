@@ -15,6 +15,7 @@ import CatShop2 from "./pages/Cat/CatShop2";
 import CatShop3 from "./pages/Cat/CatShop3";
 import CatShop4 from "./pages/Cat/CatShop4";
 import CatShop5 from "./pages/Cat/CatShop5";
+import IntroductionPage from "./pages/IntroductionPage";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -42,6 +43,7 @@ function App() {
           <Route path="/catshop3" element={<CatShop3 />} />
           <Route path="/catshop4" element={<CatShop4 />} />
           <Route path="/catshop5" element={<CatShop5 />} />
+          <Route path="/introduction" element={<IntroductionPage />} />
         </Routes>
       </BrowserRouter>
       <ToastContainer />
