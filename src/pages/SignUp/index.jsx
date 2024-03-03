@@ -30,17 +30,18 @@ function SignUp() {
         setErrorMessage("Mật khẩu và xác nhận mật khẩu không khớp!");
         return;
       }
-
+console.log(email, password, confirmPassword);
       setLoading(true);
       await axios.post(
         "https://thecoffeeshopstore.azurewebsites.net/api/Accounts/Register",
-        { email, password }
+        { email, password, confirmPass: confirmPassword }
       );
 
       toast("Đăng ký thành công", { type: "success" });
       navigate("/");
     } catch (error) {
-      toast("Đăng ký thất bại", { type: "error" });
+      toast("Đăng ký thất bại", { type: "error" }); //Đăng kí tb show cho ng dùng biết lý do
+      console.log(error);
     } finally {
       setLoading(false);
     }

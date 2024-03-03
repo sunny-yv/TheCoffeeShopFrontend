@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./style.css";
 import { Link, useNavigate } from "react-router-dom";
+
 import Footer from "../../components/Footer";
 import Header from "../../components/Header";
 import { useAuth } from "../../contexts/auth";
@@ -17,11 +18,17 @@ function Login() {
   const handleLogin = async () => {
     try {
       setLoading(true);
-      await login({ email, password });
+      const response = await login({ email, password });
       toast("Đăng nhập thành công", {
         type: "success",
       });
-      navigate("/");
+      if (response.roleName === "Manager") {
+        navigate("/admin");
+      } else{
+        navigate("/");
+      }
+      
+     console.log(response)
     } catch (error) {
       toast("Đăng nhập thất bại", {
         type: "error",

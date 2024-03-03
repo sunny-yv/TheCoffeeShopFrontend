@@ -22,6 +22,7 @@ import Menu from "./pages/Menu";
 import ListAllMenu from "./pages/Menu/ListAllMenu";
 import Drinks from "./pages/Menu/Drinks";
 import CatProducts from "./pages/Menu/CatProducts";
+import Admin from "./pages/Admin";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -56,6 +57,7 @@ function App() {
           <Route path="/allmenu" element={<ListAllMenu />} />
           <Route path="/drinks" element={<Drinks />} />
           <Route path="/catproducts" element={<CatProducts />} />
+          <Route path="/admin" element={<Admin />} />
         </Routes>
       </BrowserRouter>
       <ToastContainer />

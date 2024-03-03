@@ -11,6 +11,7 @@ export const AuthProvider = ({ children }) => {
   const login = async ({ email, password }) => {
     const response = await authService.login(email, password);
     setUser(response);
+    return response;
   };
 
   const logout = async () => {
@@ -18,11 +19,13 @@ export const AuthProvider = ({ children }) => {
     setUser(null);
   };
 
+  const getUser = async () => {
+    const user = await authService.getUser();
+    setUser(user);
+  };
+
   useEffect(() => {
-    const user = authService.getUser();
-    if (user) {
-      setUser(user);
-    }
+    getUser();
   }, []);
 
   return (
@@ -36,6 +39,7 @@ export const useUserData = () => {
   const { user } = useAuth();
   if (!user) return null;
   return {
+    roleName: user.roleName,
     id: user[
       "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier"
     ],
