@@ -1,24 +1,24 @@
 import React from "react";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { CardActionArea } from "@mui/material";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import "./style.css";
-function ListAllCat() {
+function Drinks() {
   const [searchTerm, setSearchTerm] = useState("");
   const [cardData, setCardData] = useState([]);
 
   useEffect(() => {
     if (searchTerm === "") {
       axios
-        .get(`https://thecoffeeshopstore.azurewebsites.net/api/Cats`)
+        .get(`https://thecoffeeshopstore.azurewebsites.net/api/Drinks`)
         .then(function (response) {
           console.log(response.data);
           setCardData(response.data);
@@ -29,7 +29,7 @@ function ListAllCat() {
     } else {
       axios
         .get(
-          `https://thecoffeeshopstore.azurewebsites.net/api/Cats/search?searchValue=${searchTerm}`
+          `https://thecoffeeshopstore.azurewebsites.net/api/Drinks/search?searchvalue=${searchTerm}`
         )
         .then(function (response) {
           console.log(response.data);
@@ -46,9 +46,9 @@ function ListAllCat() {
     console.log(searchTerm);
   };
   const imageUrls = [
-    "asset/meo Abyssinian.jpg",
+    "asset/O-long-kem-trung-nuong.png",
     "asset/meo bobtail.jpg",
-    "asset/meo long xu.jpg",
+    "asset/ca-phe-sua.jpg",
     "asset/mèo lông ngắn.jpg",
     "asset/meo wirehair.jpg",
     "asset/meo bali-java.jpg",
@@ -72,12 +72,12 @@ function ListAllCat() {
     "asset/Mèo Pixiebob.jpg",
     "asset/meo Ragamuffin.jpg",
   ];
-
   return (
-    <div className="cat-page">
+    <div className="menu-page">
       <Header />
-      <div className="cat-text-1">
-        <h1>Tất cả các bé mèo của Donna Cat Coffee</h1>
+
+      <div className="menu-text-1">
+        <h1>Menu</h1>
       </div>
       <div className="input-cat">
         <FontAwesomeIcon icon={faSearch} />
@@ -89,33 +89,23 @@ function ListAllCat() {
           style={{ width: "50%" }}
         />
       </div>
-
-      <div className="cards">
+      <div className="menus">
         {cardData.map((card, index) => (
-          <div className="card-1" key={index}>
-            <Card sx={{ maxWidth: 500, height: 550 }}>
+          <div className="menu-1" key={index}>
+            <Card sx={{ maxWidth: 300, height: 450 }}>
               <CardActionArea>
                 <CardMedia
                   component="img"
                   height="300px"
                   image={imageUrls[index]}
-                  alt="mèo"
+                  alt="đồ uống"
                 />
                 <CardContent>
                   <Typography gutterBottom variant="h5" component="div">
-                    {card.catName}
+                  {card.drinkName}
                   </Typography>
                   <Typography gutterBottom variant="h8" component="div">
-                    {card.age} tuổi
-                  </Typography>
-                  <Typography gutterBottom variant="h8" component="div">
-                    {card.type}
-                  </Typography>
-                  <Typography gutterBottom variant="h8" component="div">
-                    Chi nhánh 1
-                  </Typography>
-                  <Typography variant="body2" color="text.secondary">
-                    {card.description}
+                  {card.unitPrice}
                   </Typography>
                 </CardContent>
               </CardActionArea>
@@ -128,4 +118,4 @@ function ListAllCat() {
   );
 }
 
-export default ListAllCat;
+export default Drinks;

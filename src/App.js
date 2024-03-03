@@ -8,6 +8,8 @@ import HomePage from "./pages/HomePage";
 import Booking from "./pages/Booking";
 import Chinhanh2 from "./pages/Location/Chinhanh2";
 import Chinhanh3 from "./pages/Location/Chinhanh3";
+import Chinhanh4 from "./pages/Location/Chinhanh4";
+import Chinhanh5 from "./pages/Location/Chinhanh5";
 import Cat from "./pages/Cat";
 import ListAllCat from "./pages/Cat/ListAllCat";
 import CatShop1 from "./pages/Cat/CatShop1";
@@ -16,6 +18,10 @@ import CatShop3 from "./pages/Cat/CatShop3";
 import CatShop4 from "./pages/Cat/CatShop4";
 import CatShop5 from "./pages/Cat/CatShop5";
 import IntroductionPage from "./pages/IntroductionPage";
+import Menu from "./pages/Menu";
+import ListAllMenu from "./pages/Menu/ListAllMenu";
+import Drinks from "./pages/Menu/Drinks";
+import CatProducts from "./pages/Menu/CatProducts";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -36,6 +42,8 @@ function App() {
           <Route path="/booking" element={<Booking />} />
           <Route path="/location2" element={<Chinhanh2 />} />
           <Route path="/location3" element={<Chinhanh3 />} />
+          <Route path="/location4" element={<Chinhanh4 />} />
+          <Route path="/location5" element={<Chinhanh5 />} />
           <Route path="/cat" element={<Cat />} />
           <Route path="/allcat" element={<ListAllCat />} />
           <Route path="/catshop1" element={<CatShop1 />} />
@@ -44,6 +52,10 @@ function App() {
           <Route path="/catshop4" element={<CatShop4 />} />
           <Route path="/catshop5" element={<CatShop5 />} />
           <Route path="/introduction" element={<IntroductionPage />} />
+          <Route path="/menu" element={<Menu />} />
+          <Route path="/allmenu" element={<ListAllMenu />} />
+          <Route path="/drinks" element={<Drinks />} />
+          <Route path="/catproducts" element={<CatProducts />} />
         </Routes>
       </BrowserRouter>
       <ToastContainer />

@@ -20,8 +20,10 @@ function HomePage() {
           <h3>CHI NHÁNH</h3>
         </div>
         <div className="image-location">
-          <img src="../asset/chinhanh1.webp" alt="" />
-          <img src="../asset/chinhanh2.webp" alt="" />
+          <img src="../asset/meochinhanh01.jpg" alt="" />
+          <img src="../asset/meochinhanh02.jpg" alt="" />
+          <img src="../asset/meochinhanh3.jpg" alt="" />
+          <img src="../asset/meochinhanh04.jpg" alt="" />
         </div>
         <div className="product">
           <img src="../asset/dots.png" alt="" />

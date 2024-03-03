@@ -9,12 +9,14 @@ import "./style.css";
 import { Chip } from "@mui/material";
 import { Link } from "react-router-dom";
 import Dropdown from "react-bootstrap/Dropdown";
+import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+
+
 
 function Header() {
   const navigate = useNavigate();
   const userData = useUserData();
   const { logout } = useAuth();
- 
 
   const handleLogout = async () => {
     await logout();
@@ -43,13 +45,54 @@ function Header() {
               <Dropdown.Item href="/location">Chi nhánh 1</Dropdown.Item>
               <Dropdown.Item href="/location2">Chi nhánh 2</Dropdown.Item>
               <Dropdown.Item href="/location3">Chi nhánh 3</Dropdown.Item>
+              <Dropdown.Item href="/location4">Chi nhánh 4</Dropdown.Item>
+              <Dropdown.Item href="/location5">Chi nhánh 5</Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
           <li>
-            <a href="#">THỰC ĐƠN</a>
+            <Dropdown>
+              <Dropdown.Toggle variant="success" id="dropdown-basic">
+                THỰC ĐƠN
+              </Dropdown.Toggle>
+
+              <Dropdown.Menu>
+                <Dropdown.Item href="/allmenu">
+                  Tất cả sản phẩm của Shop
+                </Dropdown.Item>
+                <Dropdown.Item href="/drinks">Đồ uống</Dropdown.Item>
+                <Dropdown.Item href="/catproducts">
+                  Sản phẩm dành cho các bé mèo
+                </Dropdown.Item>
+              </Dropdown.Menu>
+            </Dropdown>
           </li>
           <li>
-            <a href="/cat">MÈO</a>
+            <Dropdown>
+              <Dropdown.Toggle variant="success" id="dropdown-basic">
+                MÈO
+              </Dropdown.Toggle>
+
+              <Dropdown.Menu>
+                <Dropdown.Item href="/allcat">
+                  Tất cả các bé mèo của nhà Donna
+                </Dropdown.Item>
+                <Dropdown.Item href="/catshop1">
+                  Các bé mèo ở chi nhánh 1
+                </Dropdown.Item>
+                <Dropdown.Item href="/catshop2">
+                  Các bé mèo ở chi nhánh 2
+                </Dropdown.Item>
+                <Dropdown.Item href="/catshop3">
+                  Các bé mèo ở chi nhánh 3
+                </Dropdown.Item>
+                <Dropdown.Item href="/catshop4">
+                  Các bé mèo ở chi nhánh 4
+                </Dropdown.Item>
+                <Dropdown.Item href="/catshop5">
+                  Các bé mèo ở chi nhánh 5
+                </Dropdown.Item>
+              </Dropdown.Menu>
+            </Dropdown>
           </li>
           <li>
             <a href="/booking">ĐẶT BÀN</a>
@@ -91,6 +134,7 @@ function Header() {
           <FontAwesomeIcon icon={faSearch} />
           <input type="text" placeholder="Tìm kiếm..." />
         </div>
+        <FontAwesomeIcon icon={faShoppingCart} size="2x" color="white"/>
       </div>
     </div>
   );
