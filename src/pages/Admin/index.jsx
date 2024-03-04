@@ -1,18 +1,22 @@
 import React, { useEffect } from "react";
 import "./style.css";
-
+import { useUserData } from '../../contexts/auth';
 import { Link, useNavigate } from "react-router-dom";
-
+import Header from "../../components/Header";
+import Footer from "../../components/Footer";
 function Admin() {
     const navigate = useNavigate();
-    // const userData = useUserData();
-    // useEffect(() => {
-    //     if(!userData || userData.roleName !== "admin") {
-    //         navigate("/");
-    //     }
-    // }, [])  
+    const userData = useUserData();
+    useEffect(() => {
+        if(!userData || userData.roleName !== "Manager") {
+            navigate("/");
+        } else {
+          navigate("/admin");
+        }
+    }, [])  
     return (
     <div className="admin-page">
+      <Header/>
       <head>
         <meta charSet="UTF-8" />
         <title>aaaa</title>
@@ -22,7 +26,7 @@ function Admin() {
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
         />
       </head>
-      <body>
+      <body >
         <div className="sidebar">
           <div className="logo"></div>
           <ul className="menu">
@@ -62,12 +66,7 @@ function Admin() {
                 <span>Settings</span>
               </a>
             </li>
-            <li className="logout">
-              <a href="#">
-                <i className="fas fa-sign-out-alt"></i>
-                <span>Logout</span>
-              </a>
-            </li>
+            
           </ul>
         </div>
 
@@ -195,6 +194,7 @@ function Admin() {
           </div>
         </div>
       </body>
+      <Footer/>
     </div>
   );
 }
