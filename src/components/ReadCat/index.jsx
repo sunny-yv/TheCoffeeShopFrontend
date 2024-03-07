@@ -16,6 +16,7 @@ function ReadCat() {
     axios
       .get(`https://thecoffeeshopstore.azurewebsites.net/api/Cats/`)
       .then((response) => {
+        // setApiData(response.data.filter(data => data.status === true));
         setApiData(response.data);
       })
       .catch((error) => {

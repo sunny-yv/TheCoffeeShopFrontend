@@ -8,6 +8,8 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import Switch from "@mui/material/Switch";
 import axios from "axios";
 import "./style.css";
+import { v4 as uuidv4 } from "uuid";
+import { useNavigate } from "react-router-dom";
 
 function CreateCat() {
   const [age, setAge] = useState("");
@@ -17,9 +19,14 @@ function CreateCat() {
   const [status, setStatus] = useState(false);
   const [coffeeID, setCoffeeID] = useState("");
   const [type, setType] = useState("");
-
+  const navigate = useNavigate();
+  const [isCreated, setIsCreated] = useState(false);
   const handleChange = (event) => {
     setAge(event.target.value);
+  };
+
+  const handleIDChange = (event) => {
+    setCoffeeID(event.target.value);
   };
 
   const handleNameChange = (event) => {
@@ -37,33 +44,50 @@ function CreateCat() {
     setStatus(!status);
   };
 
-  const handleCoffeeIDChange = (event) => {
-    setCoffeeID(event.target.value);
-  };
+  const coffeeShopIds = [
+    "9c305019-b38f-431a-835f-7b29d4351bc7",
+    "ea50c8f8-ac2b-425d-8cda-b67bfb65cbcc",
+    "f9d87ddc-c7ea-4178-ba3b-d30efa6f426c",
+    "e54cb065-8ef4-4041-8822-e2ecf294c281",
+    "4ff4a000-9b2a-4409-92c5-f9cf01947609",
+  ];
 
-  const sendDataToAPI = async () => {
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
     try {
+      if (!catName || !age || !description || !type || !image || !coffeeID) {
+        console.error("Vui lòng điền đầy đủ thông tin mèo.");
+        return;
+      }
+
+      const formData = new FormData();
+      formData.append("catName", catName);
+      formData.append("age", age);
+      formData.append("description", description);
+      formData.append("type", type);
+      formData.append("status", status);
+      formData.append("image", image);
+      formData.append("coffeeID", coffeeID);
+
       await axios.post(
         "https://thecoffeeshopstore.azurewebsites.net/api/Cats",
+        formData,
         {
-          catName,
-          age,
-          description,
-          type,
-          status,
-          image,
-          coffeeID,
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
         }
       );
       console.log("Data sent successfully");
+      setIsCreated(true);
+      setTimeout(() => {
+        setIsCreated(false);
+        navigate("/readcat");
+      }, 1000);
     } catch (error) {
       console.error("Error sending data:", error);
     }
-  };
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    sendDataToAPI();
   };
 
   return (
@@ -81,6 +105,7 @@ function CreateCat() {
         <InputLabel id="demo-simple-select-label">
           <b>Tuổi</b>
         </InputLabel>
+
         <Select
           labelId="demo-simple-select-label"
           id="demo-simple-select"
@@ -110,7 +135,7 @@ function CreateCat() {
           <input
             placeholder="Thể loại"
             value={type}
-            onChange={(e) => setType(e.target.value)}
+            onChange={handleTypeChange}
           />
         </FormField>
 
@@ -132,13 +157,14 @@ function CreateCat() {
           id="demo-simple-select"
           value={coffeeID}
           label="Age"
-          onChange={handleCoffeeIDChange}
+          onChange={handleIDChange}
           style={{ width: "310px" }}
         >
-          <MenuItem value={1}>Chi nhánh 1</MenuItem>
-          <MenuItem value={2}>Chi nhánh 2</MenuItem>
-          <MenuItem value={3}>Chi nhánh 3</MenuItem>
-          <MenuItem value={4}>Chi nhánh 4</MenuItem>
+          {coffeeShopIds.map((id) => (
+            <MenuItem key={id} value={id}>
+              Chi nhánh {coffeeShopIds.indexOf(id) + 1}
+            </MenuItem>
+          ))}
         </Select>
         <FormGroup aria-label="position" row>
           <FormControlLabel
@@ -157,7 +183,7 @@ function CreateCat() {
         <FormField>
           <Checkbox label="Tôi đồng ý với các Điều khoản và Điều kiện" />
         </FormField>
-
+        {isCreated && <p style={{ color: "green" }}>Thêm mèo thành công!</p>}
         <Button type="submit">Thêm</Button>
       </Form>
     </div>

@@ -18,8 +18,6 @@ function Manager() {
       <div style={{ marginTop: "30px" }}>
         <ReadCat />
       </div>
-
-      
     </div>
   );
 }

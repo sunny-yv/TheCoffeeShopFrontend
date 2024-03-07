@@ -13,13 +13,13 @@ function CreateCat() {
   const [age, setAge] = useState("");
   const [catName, setCatName] = useState("");
   const [description, setDescription] = useState("");
-  const [image, setImage] = useState(null);
+  // const [image, setImage] = useState(null);
   const [status, setStatus] = useState(false);
   const [coffeeID, setCoffeeID] = useState("");
   const [type, setType] = useState("");
 
   const handleChange = (event) => {
-    setAge(event.target.value);
+    setAge(parseInt(event.target.value));
   };
 
   const handleNameChange = (event) => {
@@ -28,10 +28,10 @@ function CreateCat() {
   const handleTypeChange = (event) => {
     setType(event.target.value);
   };
-  const handleImageChange = (event) => {
-    const selectedImage = event.target.files[0];
-    setImage(selectedImage);
-  };
+  // const handleImageChange = (event) => {
+  //   const selectedImage = event.target.files[0];
+  //   setImage(selectedImage);
+  // };
 
   const handleStatusChange = () => {
     setStatus(!status);
@@ -51,7 +51,7 @@ function CreateCat() {
           description,
           type,
           status,
-          image,
+          // image,
           coffeeID,
         }
       );
@@ -81,6 +81,7 @@ function CreateCat() {
         <InputLabel id="demo-simple-select-label">
           <b>Tuổi</b>
         </InputLabel>
+
         <Select
           labelId="demo-simple-select-label"
           id="demo-simple-select"
@@ -110,11 +111,11 @@ function CreateCat() {
           <input
             placeholder="Thể loại"
             value={type}
-            onChange={(e) => setType(e.target.value)}
+            onChange={handleTypeChange}
           />
         </FormField>
 
-        <FormField>
+        {/* <FormField>
           <label>Ảnh</label>
           <input
             accept="image/*"
@@ -122,7 +123,15 @@ function CreateCat() {
             placeholder="Last Name"
             onChange={handleImageChange}
           />
-        </FormField>
+        </FormField> */}
+        {/* <FormField>
+          <label>Ảnh</label>
+          <input
+            placeholder="Mô tả"
+            value={image}
+            onChange={(e) => setImage(e.target.value)}
+          />
+        </FormField> */}
 
         <InputLabel id="demo-simple-select-label">
           <b>Chi nhánh</b>

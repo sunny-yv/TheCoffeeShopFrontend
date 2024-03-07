@@ -1,168 +1,176 @@
-import React, { useState } from "react";
-import { FormField, Button, Checkbox, Form } from "semantic-ui-react";
-import InputLabel from "@mui/material/InputLabel";
-import MenuItem from "@mui/material/MenuItem";
-import Select from "@mui/material/Select";
-import FormGroup from "@mui/material/FormGroup";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import Switch from "@mui/material/Switch";
+import React, { useState, useEffect } from "react";
+import { FormField, Button, Form, Checkbox } from "semantic-ui-react";
 import axios from "axios";
-import "./style.css";
-import { Link } from "react-router-dom";
+
+import { useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 function UpdateCat() {
-  const [age, setAge] = useState("");
-  const [catName, setCatName] = useState("");
-  const [description, setDescription] = useState("");
-  const [image, setImage] = useState(null);
-  const [status, setStatus] = useState(false);
-  const [coffeeID, setCoffeeID] = useState("");
-  const [type, setType] = useState("");
+  const { catID } = useParams();
+  const [isUpdated, setIsUpdated] = useState(false);
+  const navigate = useNavigate();
+  const [catData, setCatData] = useState({
+    age: "",
+    catName: "",
+    description: "",
+    image: null,
+    status: false,
+    coffeeID: "",
+    type: "",
+  });
 
-  const handleChange = (event) => {
-    setAge(event.target.value);
-  };
+  const [originalCatData, setOriginalCatData] = useState({});
+  const [isLoading, setIsLoading] = useState(true);
 
-  const handleNameChange = (event) => {
-    setCatName(event.target.value);
-  };
-  const handleTypeChange = (event) => {
-    setType(event.target.value);
-  };
-  const handleImageChange = (event) => {
-    const selectedImage = event.target.files[0];
-    setImage(selectedImage);
-  };
+  useEffect(() => {
+    const fetchCatData = async () => {
+      try {
+        const response = await axios.get(
+          `https://thecoffeeshopstore.azurewebsites.net/api/Cats/${catID}`
+        );
+        const catData = response.data;
+        setCatData(catData);
+        setOriginalCatData(catData);
+        setIsLoading(false);
+      } catch (error) {
+        console.error("Error fetching cat data:", error);
+      }
+    };
 
-  const handleStatusChange = () => {
-    setStatus(!status);
-  };
+    fetchCatData();
+  }, [catID]);
 
-  const handleCoffeeIDChange = (event) => {
-    setCoffeeID(event.target.value);
-  };
-
-  const sendDataToAPI = async () => {
-    try {
-      await axios.post(
-        "https://thecoffeeshopstore.azurewebsites.net/api/Cats",
-        {
-          catName,
-          age,
-          description,
-          type,
-          status,
-          image,
-          coffeeID,
-        }
-      );
-      console.log("Data sent successfully");
-    } catch (error) {
-      console.error("Error sending data:", error);
-    }
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setCatData({ ...catData, [name]: value });
   };
 
-  const handleSubmit = (event) => {
+  const handleCheckboxChange = () => {
+    setCatData({ ...catData, status: !catData.status });
+  };
+
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    sendDataToAPI();
+    try {
+      if (JSON.stringify(catData) !== JSON.stringify(originalCatData)) {
+        const formData = new FormData();
+        formData.append("catName", catData.catName);
+        formData.append("age", catData.age);
+        formData.append("description", catData.description);
+        formData.append("type", catData.type);
+        formData.append("status", catData.status);
+        formData.append("coffeeID", catData.coffeeID);
+        if (catData.image) {
+          formData.append("image", catData.image);
+        }
+
+        await axios.put(
+          `https://thecoffeeshopstore.azurewebsites.net/api/Cats/${catID}`,
+          formData,
+          {
+            headers: {
+              "Content-Type": "multipart/form-data",
+            },
+          }
+        );
+        console.log("Updated cat data sent successfully");
+        setIsUpdated(true);
+        setTimeout(() => {
+          setIsUpdated(false);
+          navigate("/readcat");
+        }, 1000);
+      } else {
+        console.log("Cat data has not changed");
+        setIsUpdated(true);
+        setTimeout(() => {
+          setIsUpdated(false);
+          navigate("/readcat");
+        }, 1000);
+      }
+    } catch (error) {
+      console.error("Error updating cat data:", error);
+    }
   };
 
   return (
     <div className="manager">
-      <Form onSubmit={handleSubmit}>
-        <FormField>
-          <label>Tên</label>
-          <input
-            placeholder="Tên"
-            value={catName}
-            onChange={handleNameChange}
-          />
-        </FormField>
-
-        <InputLabel id="demo-simple-select-label">
-          <b>Tuổi</b>
-        </InputLabel>
-        <Select
-          labelId="demo-simple-select-label"
-          id="demo-simple-select"
-          value={age}
-          label="Age"
-          onChange={handleChange}
-          style={{ width: "310px" }}
-        >
-          <MenuItem value={1}>1</MenuItem>
-          <MenuItem value={2}>2</MenuItem>
-          <MenuItem value={3}>3</MenuItem>
-          <MenuItem value={4}>4</MenuItem>
-          <MenuItem value={5}>5</MenuItem>
-        </Select>
-
-        <FormField>
-          <label>Mô tả</label>
-          <input
-            placeholder="Mô tả"
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
-          />
-        </FormField>
-
-        <FormField>
-          <label>Thể loại</label>
-          <input
-            placeholder="Thể loại"
-            value={type}
-            onChange={(e) => setType(e.target.value)}
-          />
-        </FormField>
-
-        <FormField>
-          <label>Ảnh</label>
-          <input
-            accept="image/*"
-            type="file"
-            placeholder="Last Name"
-            onChange={handleImageChange}
-          />
-        </FormField>
-
-        <InputLabel id="demo-simple-select-label">
-          <b>Chi nhánh</b>
-        </InputLabel>
-        <Select
-          labelId="demo-simple-select-label"
-          id="demo-simple-select"
-          value={coffeeID}
-          label="Age"
-          onChange={handleCoffeeIDChange}
-          style={{ width: "310px" }}
-        >
-          <MenuItem value={1}>Chi nhánh 1</MenuItem>
-          <MenuItem value={2}>Chi nhánh 2</MenuItem>
-          <MenuItem value={3}>Chi nhánh 3</MenuItem>
-          <MenuItem value={4}>Chi nhánh 4</MenuItem>
-        </Select>
-        <FormGroup aria-label="position" row>
-          <FormControlLabel
-            control={
-              <Switch
-                checked={status}
-                onChange={handleStatusChange}
-                color="primary"
+      {isLoading ? (
+        <p>Loading...</p>
+      ) : (
+        <>
+          <Form onSubmit={handleSubmit}>
+            <FormField>
+              <label>Tên</label>
+              <input
+                placeholder="Tên"
+                name="catName"
+                value={catData.catName}
+                onChange={handleInputChange}
               />
-            }
-            label="Trạng thái"
-            labelPlacement="start"
-            style={{ marginLeft: "0px" }}
-          />
-        </FormGroup>
-        <FormField>
-          <Checkbox label="Tôi đồng ý với các Điều khoản và Điều kiện" />
-        </FormField>
-
-        <Button type="submit">Sửa</Button>
-        <Link to="/manager">
-          <Button>Quay lại</Button>
-        </Link>
-      </Form>
+            </FormField>
+            <FormField>
+              <label>Tuổi</label>
+              <input
+                placeholder="Tuổi"
+                name="age"
+                value={catData.age}
+                onChange={handleInputChange}
+              />
+            </FormField>
+            <FormField>
+              <label>Mô tả</label>
+              <input
+                placeholder="Mô tả"
+                name="description"
+                value={catData.description}
+                onChange={handleInputChange}
+              />
+            </FormField>
+            <FormField>
+              <label>Thể loại</label>
+              <input
+                placeholder="Thể loại"
+                name="type"
+                value={catData.type}
+                onChange={handleInputChange}
+              />
+            </FormField>
+            <FormField>
+              <label>Ảnh</label>
+              <input
+                accept="image/*"
+                type="file"
+                onChange={(event) =>
+                  setCatData({ ...catData, image: event.target.files[0] })
+                }
+              />
+            </FormField>
+            <FormField>
+              <label>Chi nhánh</label>
+              <input
+                placeholder="Chi nhánh"
+                name="coffeeID"
+                value={catData.coffeeID}
+                onChange={handleInputChange}
+              />
+            </FormField>
+            <FormField>
+              <Checkbox
+                checked={catData.status}
+                onChange={handleCheckboxChange}
+                label="Trạng thái"
+              />
+            </FormField>
+            {isUpdated && (
+              <p style={{ color: "green", fontSize: "20px", display: "flex", justifyContent: "center", fontWeight: "30px" }}>
+                {JSON.stringify(originalCatData) === JSON.stringify(catData)
+                  ? "Không có sự thay đổi"
+                  : "Sửa đổi đã được lưu thành công!"}
+              </p>
+            )}
+            <Button type="submit">Cập nhật</Button>
+          </Form>
+        </>
+      )}
     </div>
   );
 }

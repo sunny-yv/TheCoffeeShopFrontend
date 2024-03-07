@@ -29,7 +29,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { AuthProvider } from "./contexts/auth";
 import CreateCat from "./pages/Manager/CreateCat";
-import DeleteCat from "./pages/Manager/DeleteCat";
+
 import ReadCat from "./pages/Manager/ReadCat";
 import UpdateCat from "./pages/Manager/UpdateCat";
 function App() {
@@ -64,9 +64,10 @@ function App() {
           <Route path="/admin" element={<Admin />} />
           <Route path="/manager" element={<Manager />} />
           <Route path="/createcat" element={<CreateCat />} />
-          <Route path="/deletecat" element={<DeleteCat />} />
+          
           <Route path="/readcat" element={<ReadCat />} />
           <Route path="/updatecat" element={<UpdateCat />} />
+          <Route path="/updatecat/:catID" element={<UpdateCat />} />
         </Routes>
       </BrowserRouter>
       <ToastContainer />
