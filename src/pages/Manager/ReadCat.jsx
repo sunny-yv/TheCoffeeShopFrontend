@@ -13,12 +13,12 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 function ReadCat() {
   const navigate = useNavigate();
-
+  const [deletedIds, setDeletedIds] = useState([]);
   const [apiData, setApiData] = useState([]);
   const handleEdit = (catID) => {
     navigate(`/updatecat/${catID}`);
   };
-  
+
   useEffect(() => {
     axios
       .get(`https://thecoffeeshopstore.azurewebsites.net/api/Cats/`)
@@ -30,20 +30,20 @@ function ReadCat() {
       });
   }, []);
 
-  const getData = () => {
-    axios
-      .get(`https://thecoffeeshopstore.azurewebsites.net/api/Cats/`)
-      .then((getData) => {
-        setApiData(getData.data);
-      });
-  };
-
+  useEffect(() => {
+    const filteredData = apiData.filter(
+      (data) => !deletedIds.includes(data.catID)
+    );
+    setApiData(filteredData);
+  }, [deletedIds]);
+  
+  
   const onDelete = async (id) => {
     try {
       await axios.delete(
         `https://thecoffeeshopstore.azurewebsites.net/api/Cats/${id}`
       );
-      setApiData(apiData.filter((data) => data.catID !== id));
+      setDeletedIds([...deletedIds, id]);
     } catch (error) {
       console.error("Error deleting data:", error);
     }
@@ -59,7 +59,6 @@ function ReadCat() {
           <TableHeaderCell>Mô tả</TableHeaderCell>
           <TableHeaderCell>Thể loại</TableHeaderCell>
           {/* <TableHeaderCell>Ảnh</TableHeaderCell> */}
-          
           <TableHeaderCell>Sửa</TableHeaderCell>
           <TableHeaderCell>Xóa</TableHeaderCell>
           {/* <TableHeaderCell>Quay lại</TableHeaderCell> */}
@@ -76,7 +75,7 @@ function ReadCat() {
               <TableCell>{data.description}</TableCell>
               <TableCell>{data.type}</TableCell>
               {/* <TableCell>{data.image}</TableCell> */}
-             
+
               <TableCell>
                 <Button color="blue" onClick={() => handleEdit(data.catID)}>
                   Sửa
