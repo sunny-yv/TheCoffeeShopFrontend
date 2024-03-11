@@ -4,32 +4,33 @@ import axios from "axios";
 
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-function UpdateCat() {
-  const { catID } = useParams();
+function UpdateManager() {
+  const { coffeeID } = useParams();
   const [isUpdated, setIsUpdated] = useState(false);
   const navigate = useNavigate();
-  const [catData, setCatData] = useState({
-    age: "",
-    catName: "",
+  const [coffeeData, setCoffeeData] = useState({
+    
+    coffeeName: "",
+    openTime: "",
+    closeTime: "",
+    phoneNumber: "",
     description: "",
     image: null,
     status: false,
-    coffeeID: "",
-    type: "",
   });
 
-  const [originalCatData, setOriginalCatData] = useState({});
+  const [originalCoffeeData, setOriginalCoffeeData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const fetchCatData = async () => {
       try {
         const response = await axios.get(
-          `https://thecoffeeshopstore.azurewebsites.net/api/Cats/${catID}`
+          `https://thecoffeeshopstore.azurewebsites.net/api/CoffeeShops/${coffeeID}`
         );
-        const catData = response.data;
-        setCatData(catData);
-        setOriginalCatData(catData);
+        const coffeeData = response.data;
+        setCoffeeData(coffeeData);
+        setOriginalCoffeeData(coffeeData);
         setIsLoading(false);
       } catch (error) {
         console.error("Error fetching cat data:", error);
@@ -37,34 +38,36 @@ function UpdateCat() {
     };
 
     fetchCatData();
-  }, [catID]);
+  }, [coffeeID]);
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
-    setCatData({ ...catData, [name]: value });
+    setCoffeeData({ ...coffeeData, [name]: value });
   };
 
   const handleCheckboxChange = () => {
-    setCatData({ ...catData, status: !catData.status });
+    setCoffeeData({ ...coffeeData, status: !coffeeData.status });
   };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      if (JSON.stringify(catData) !== JSON.stringify(originalCatData)) {
+      if (JSON.stringify(coffeeData) !== JSON.stringify(originalCoffeeData)) {
         const formData = new FormData();
-        formData.append("catName", catData.catName);
-        formData.append("age", catData.age);
-        formData.append("description", catData.description);
-        formData.append("type", catData.type);
-        formData.append("status", catData.status);
-        formData.append("coffeeID", catData.coffeeID);
-        if (catData.image) {
-          formData.append("image", catData.image);
+        formData.append("coffeeName", coffeeData.coffeeName);
+        formData.append("openTime", coffeeData.openTime);
+        formData.append("closeTime", coffeeData.closeTime);
+        formData.append("phoneNumber", coffeeData.phoneNumber);
+        formData.append("description", coffeeData.description);
+        
+        formData.append("status", coffeeData.status);
+        
+        if (coffeeData.image) {
+          formData.append("image", coffeeData.image);
         }
 
         await axios.put(
-          `https://thecoffeeshopstore.azurewebsites.net/api/Cats/${catID}`,
+          `https://thecoffeeshopstore.azurewebsites.net/api/CoffeeShops/${coffeeID}`,
           formData,
           {
             headers: {
@@ -72,22 +75,22 @@ function UpdateCat() {
             },
           }
         );
-        console.log("Updated cat data sent successfully");
+        console.log("Updated coffee data sent successfully");
         setIsUpdated(true);
         setTimeout(() => {
           setIsUpdated(false);
-          navigate("/readcat");
+          navigate("/admin");
         }, 1000);
       } else {
-        console.log("Cat data has not changed");
+        console.log("Coffee data has not changed");
         setIsUpdated(true);
         setTimeout(() => {
           setIsUpdated(false);
-          navigate("/readcat");
+          navigate("/admin");
         }, 1000);
       }
     } catch (error) {
-      console.error("Error updating cat data:", error);
+      console.error("Error updating coffee data:", error);
     }
   };
 
@@ -102,61 +105,37 @@ function UpdateCat() {
               <label>Tên</label>
               <input
                 placeholder="Tên"
-                name="catName"
-                value={catData.catName}
+                name="coffeeName"
+                value={coffeeData.coffeeName}
                 onChange={handleInputChange}
               />
             </FormField>
-            <FormField>
-              <label>Tuổi</label>
-              <input
-                placeholder="Tuổi"
-                name="age"
-                value={catData.age}
-                onChange={handleInputChange}
-              />
-            </FormField>
+            
             <FormField>
               <label>Mô tả</label>
               <textarea
                 
                 placeholder="Mô tả"
                 name="description"
-                value={catData.description}
+                value={coffeeData.description}
                 onChange={handleInputChange}
               />
             </FormField>
-            <FormField>
-              <label>Thể loại</label>
-              <input
-                placeholder="Thể loại"
-                name="type"
-                value={catData.type}
-                onChange={handleInputChange}
-              />
-            </FormField>
+            
             <FormField>
               <label>Ảnh</label>
               <input
                 accept="image/*"
                 type="file"
                 onChange={(event) =>
-                  setCatData({ ...catData, image: event.target.files[0] })
+                  setCoffeeData({ ...coffeeData, image: event.target.files[0] })
                 }
               />
             </FormField>
-            <FormField>
-              <label>Chi nhánh</label>
-              <input
-                placeholder="Chi nhánh"
-                name="coffeeID"
-                value={catData.coffeeID}
-                onChange={handleInputChange}
-              />
-            </FormField>
+            
             <FormField>
               <Checkbox
-                checked={catData.status}
+                checked={coffeeData.status}
                 onChange={handleCheckboxChange}
                 label="Trạng thái"
               />
@@ -171,7 +150,7 @@ function UpdateCat() {
                   fontWeight: "30px",
                 }}
               >
-                {JSON.stringify(originalCatData) === JSON.stringify(catData)
+                {JSON.stringify(originalCoffeeData) === JSON.stringify(coffeeData)
                   ? "Không có sự thay đổi"
                   : "Sửa đổi đã được lưu thành công!"}
               </p>
@@ -184,4 +163,4 @@ function UpdateCat() {
   );
 }
 
-export default UpdateCat;
+export default UpdateManager;

@@ -32,6 +32,7 @@ import CreateCat from "./pages/Manager/CreateCat";
 
 import ReadCat from "./pages/Manager/ReadCat";
 import UpdateCat from "./pages/Manager/UpdateCat";
+import UpdateManager from "./pages/Admin/UpdateManager";
 function App() {
   return (
     <AuthProvider>
@@ -64,10 +65,11 @@ function App() {
           <Route path="/admin" element={<Admin />} />
           <Route path="/manager" element={<Manager />} />
           <Route path="/createcat" element={<CreateCat />} />
-          
           <Route path="/readcat" element={<ReadCat />} />
           <Route path="/updatecat" element={<UpdateCat />} />
           <Route path="/updatecat/:catID" element={<UpdateCat />} />
+          <Route path="/updatemanager" element={<UpdateManager />} />
+          <Route path="/updatemanager/:coffeeID" element={<UpdateManager />} />
         </Routes>
       </BrowserRouter>
       <ToastContainer />
