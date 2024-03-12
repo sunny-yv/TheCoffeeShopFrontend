@@ -33,6 +33,12 @@ import CreateCat from "./pages/Manager/CreateCat";
 import ReadCat from "./pages/Manager/ReadCat";
 import UpdateCat from "./pages/Manager/UpdateCat";
 import UpdateManager from "./pages/Admin/UpdateManager";
+import ReadDrink from "./pages/Manager/ReadDrink";
+import CreateDrink from "./pages/Manager/CreateDrink";
+import UpdateDrink from "./pages/Manager/UpdateDrink";
+import CreateCatProduct from "./pages/Manager/CreateCatProduct";
+import ReadCatProduct from "./pages/Manager/ReadCatProduct";
+import UpdateCatProduct from "./pages/Manager/UpdateCatProduct";
 function App() {
   return (
     <AuthProvider>
@@ -70,6 +76,18 @@ function App() {
           <Route path="/updatecat/:catID" element={<UpdateCat />} />
           <Route path="/updatemanager" element={<UpdateManager />} />
           <Route path="/updatemanager/:coffeeID" element={<UpdateManager />} />
+          <Route path="/readdrink" element={<ReadDrink />} />
+          <Route path="/createdrink" element={<CreateDrink />} />
+          <Route path="/updatedrink" element={<UpdateDrink />} />
+          <Route path="/createcatproduct" element={<CreateCatProduct />} />
+          <Route path="/readcatproduct" element={<ReadCatProduct />} />
+          <Route path="/updatecatproduct" element={<UpdateCatProduct />} />
+          <Route
+            path="/updatecatproduct/:catProductID"
+            element={<UpdateCatProduct />}
+          />
+
+          <Route path="/updatedrink/:drinkID" element={<UpdateDrink />} />
         </Routes>
       </BrowserRouter>
       <ToastContainer />

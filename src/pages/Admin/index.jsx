@@ -105,7 +105,7 @@ export default function Admin() {
 
   const navigate = useNavigate();
   const userData = useUserData();
-  const { loaded } = useAuth()
+  const { loaded } = useAuth();
 
   useEffect(() => {
     if (loaded && (!userData || userData.roleName !== "Manager")) {
@@ -194,14 +194,12 @@ export default function Admin() {
                 <ListItemText primary="Thêm tài khoản" />
               </ListItemButton>
             </ListItem>
-            
           </List>
           <Divider />
         </Drawer>
         <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
           {menudata == "ReadManager" && <ReadManager />}
           {menudata == "CreateManager" && <CreateManager />}
-          
         </Box>
       </Box>
     </>
