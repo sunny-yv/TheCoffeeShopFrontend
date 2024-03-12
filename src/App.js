@@ -88,6 +88,7 @@ function App() {
           />
 
           <Route path="/updatedrink/:drinkID" element={<UpdateDrink />} />
+          <Route path="/homestaff" element={<HomeStaff />} />
         </Routes>
       </BrowserRouter>
       <ToastContainer />
