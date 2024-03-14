@@ -20,7 +20,7 @@ import InboxIcon from "@mui/icons-material/MoveToInbox";
 import MailIcon from "@mui/icons-material/Mail";
 import CreateCoffeeShop from "../../components/CreateCoffeeShop";
 import ReadCoffeeShop from "../../components/ReadCoffeeShop";
-
+import ReadCat from "../Manager/ReadCat";
 import { MdDomain, MdCreateNewFolder } from "react-icons/md";
 import { useAuth, useUserData } from "../../contexts/auth";
 import { useNavigate } from "react-router-dom";
@@ -145,8 +145,11 @@ export default function Admin() {
             </IconButton>
           </DrawerHeader>
           <Divider />
+          
           <List>
+          
             <ListItem
+            
               disablePadding
               sx={{ display: "block" }}
               onClick={() => setMenudata("ReadCoffeeShop")}
@@ -173,7 +176,7 @@ export default function Admin() {
             <ListItem
               disablePadding
               sx={{ display: "block" }}
-              onClick={() => setMenudata("CreateCoffeeShop")}
+              onClick={() => setMenudata("Readcat")}
             >
               <ListItemButton
                 sx={{
@@ -191,7 +194,7 @@ export default function Admin() {
                 >
                   <MdCreateNewFolder />
                 </ListItemIcon>
-                <ListItemText primary="Thêm chi nhánh" />
+                <ListItemText primary="Quản lý" />
               </ListItemButton>
             </ListItem>
             
@@ -201,7 +204,7 @@ export default function Admin() {
         <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
           {menudata == "ReadCoffeeShop" && <ReadCoffeeShop />}
           {menudata == "CreateCoffeeShop" && <CreateCoffeeShop />}
-          
+          {menudata == "Readcat" && <ReadCat />}
         </Box>
       </Box>
     </>

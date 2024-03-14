@@ -34,6 +34,7 @@ import Table from "./pages/Table";
 import ReadCat from "./pages/Manager/ReadCat";
 import UpdateCat from "./pages/Manager/UpdateCat";
 import UpdateManager from "./pages/Admin/UpdateManager";
+import CreateCoffeeShop from "./pages/Admin/CreateCoffeeShop";
 import TableCoffeeShop2 from "./pages/Table/TableCoffeeShop2";
 import TableCoffeeShop3 from "./pages/Table/TableCoffeeShop3";
 import TableCoffeeShop4 from "./pages/Table/TableCoffeeShop4";
@@ -74,6 +75,7 @@ function App() {
           <Route path="/readcat" element={<ReadCat />} />
           <Route path="/updatecat" element={<UpdateCat />} />
           <Route path="/updatecat/:catID" element={<UpdateCat />} />
+          <Route path="/createcoffeeshop" element={<CreateCoffeeShop />} />
           <Route path="/updatemanager" element={<UpdateManager />} />
           <Route path="/updatemanager/:coffeeID" element={<UpdateManager />} />
           <Route path="/table" element={<Table />} />

@@ -9,7 +9,6 @@ function UpdateManager() {
   const [isUpdated, setIsUpdated] = useState(false);
   const navigate = useNavigate();
   const [coffeeData, setCoffeeData] = useState({
-    
     coffeeName: "",
     openTime: "",
     closeTime: "",
@@ -49,6 +48,10 @@ function UpdateManager() {
     setCoffeeData({ ...coffeeData, status: !coffeeData.status });
   };
 
+  const handleGOBack = () => {
+    navigate("/admin");
+  };
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
@@ -59,9 +62,9 @@ function UpdateManager() {
         formData.append("closeTime", coffeeData.closeTime);
         formData.append("phoneNumber", coffeeData.phoneNumber);
         formData.append("description", coffeeData.description);
-        
+
         formData.append("status", coffeeData.status);
-        
+
         if (coffeeData.image) {
           formData.append("image", coffeeData.image);
         }
@@ -110,18 +113,17 @@ function UpdateManager() {
                 onChange={handleInputChange}
               />
             </FormField>
-            
+
             <FormField>
               <label>Mô tả</label>
               <textarea
-                
                 placeholder="Mô tả"
                 name="description"
                 value={coffeeData.description}
                 onChange={handleInputChange}
               />
             </FormField>
-            
+
             <FormField>
               <label>Ảnh</label>
               <input
@@ -132,7 +134,7 @@ function UpdateManager() {
                 }
               />
             </FormField>
-            
+
             <FormField>
               <Checkbox
                 checked={coffeeData.status}
@@ -150,12 +152,14 @@ function UpdateManager() {
                   fontWeight: "30px",
                 }}
               >
-                {JSON.stringify(originalCoffeeData) === JSON.stringify(coffeeData)
+                {JSON.stringify(originalCoffeeData) ===
+                JSON.stringify(coffeeData)
                   ? "Không có sự thay đổi"
                   : "Sửa đổi đã được lưu thành công!"}
               </p>
             )}
             <Button type="submit">Cập nhật</Button>
+            <Button onClick={handleGOBack}>Quay lại</Button>
           </Form>
         </>
       )}

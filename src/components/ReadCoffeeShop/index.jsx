@@ -6,18 +6,22 @@ import {
   TableCell,
   TableBody,
   Table,
-  Button,
 } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Box from "@mui/material/Box";
+import { Button as SemanticButton } from "semantic-ui-react";
+import CreateCoffeeShop from "../../components/CreateCoffeeShop";
 import UpdateManager from "../UpdateCoffeeShop";
+
+import { Icon } from "semantic-ui-react";
+
 function ReadManager() {
   const navigate = useNavigate();
   const [deletedIds, setDeletedIds] = useState([]);
   const [apiData, setApiData] = useState([]);
-  
+
   const handleEdit = (coffeeID) => {
     navigate(`/updatemanager/${coffeeID}`);
   };
@@ -51,9 +55,16 @@ function ReadManager() {
     }
   };
 
+  const handleAdd = () => {
+    navigate("/createcoffeeshop");
+  };
+
   return (
     <>
-      <Box height={100} />
+      <Box height={150} />
+      <SemanticButton primary onClick={handleAdd}>
+        <Icon name="plus" /> Thêm chi nhánh
+      </SemanticButton>
       <Table celled>
         <TableHeader>
           <TableRow>
@@ -81,15 +92,21 @@ function ReadManager() {
                 {/* <TableCell>{data.image}</TableCell> */}
 
                 <TableCell>
-                  <Button color="blue" onClick={() => handleEdit(data.coffeeID)}>
+                  <SemanticButton
+                    color="blue"
+                    onClick={() => handleEdit(data.coffeeID)}
+                  >
                     Sửa
-                  </Button>
+                  </SemanticButton>
                 </TableCell>
 
                 <TableCell>
-                  <Button color="red" onClick={() => onDelete(data.coffeeID)}>
+                  <SemanticButton
+                    color="red"
+                    onClick={() => onDelete(data.coffeeID)}
+                  >
                     Xóa
-                  </Button>
+                  </SemanticButton>
                 </TableCell>
               </TableRow>
             );
