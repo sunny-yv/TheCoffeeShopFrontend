@@ -6,7 +6,7 @@ import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import axios from "axios";
 
-function Location2() {
+function Location1() {
   const [coffeeShop, setCoffeeShop] = useState(null);
 
   useEffect(() => {
@@ -18,7 +18,7 @@ function Location2() {
       const response = await axios.get(
         "https://thecoffeeshopstore.azurewebsites.net/api/CoffeeShops"
       );
-      setCoffeeShop(response.data[2]);
+      setCoffeeShop(response.data[1]);
     } catch (error) {
       console.error("Error fetching coffee shop data:", error);
     }
@@ -63,7 +63,7 @@ function Location2() {
                 }}
               >
                 <Link
-                  to="/tablecoffeeshop2"
+                  to="/table"
                   style={{ textDecoration: "none", color: "inherit" }}
                 >
                   Đặt bàn
@@ -124,4 +124,4 @@ function Location2() {
   );
 }
 
-export default Location2;
+export default Location1;

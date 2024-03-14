@@ -29,6 +29,7 @@ function Login() {
       }
      console.log(response)
     } catch (error) {
+      console.log(error)
       toast("Đăng nhập thất bại", {
         type: "error",
       });
@@ -36,6 +37,8 @@ function Login() {
       setLoading(false);
     }
   };
+
+  
 
   return (
     <div className="row g-0 vh-100 justify-content-center align-items-center login-container">

@@ -18,8 +18,8 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import InboxIcon from "@mui/icons-material/MoveToInbox";
 import MailIcon from "@mui/icons-material/Mail";
-import CreateManager from "../../components/CreateManager";
-import ReadManager from "../../components/ReadManager";
+import CreateCoffeeShop from "../../components/CreateCoffeeShop";
+import ReadCoffeeShop from "../../components/ReadCoffeeShop";
 
 import { MdDomain, MdCreateNewFolder } from "react-icons/md";
 import { useAuth, useUserData } from "../../contexts/auth";
@@ -52,7 +52,7 @@ const DrawerHeader = styled("div")(({ theme }) => ({
   alignItems: "center",
   justifyContent: "flex-end",
   padding: theme.spacing(0, 1),
-  // necessary for content to be below app bar
+ 
   ...theme.mixins.toolbar,
 }));
 
@@ -149,7 +149,7 @@ export default function Admin() {
             <ListItem
               disablePadding
               sx={{ display: "block" }}
-              onClick={() => setMenudata("ReadManager")}
+              onClick={() => setMenudata("ReadCoffeeShop")}
             >
               <ListItemButton
                 sx={{
@@ -173,7 +173,7 @@ export default function Admin() {
             <ListItem
               disablePadding
               sx={{ display: "block" }}
-              onClick={() => setMenudata("CreateManager")}
+              onClick={() => setMenudata("CreateCoffeeShop")}
             >
               <ListItemButton
                 sx={{
@@ -191,7 +191,7 @@ export default function Admin() {
                 >
                   <MdCreateNewFolder />
                 </ListItemIcon>
-                <ListItemText primary="Thêm tài khoản" />
+                <ListItemText primary="Thêm chi nhánh" />
               </ListItemButton>
             </ListItem>
             
@@ -199,8 +199,8 @@ export default function Admin() {
           <Divider />
         </Drawer>
         <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
-          {menudata == "ReadManager" && <ReadManager />}
-          {menudata == "CreateManager" && <CreateManager />}
+          {menudata == "ReadCoffeeShop" && <ReadCoffeeShop />}
+          {menudata == "CreateCoffeeShop" && <CreateCoffeeShop />}
           
         </Box>
       </Box>

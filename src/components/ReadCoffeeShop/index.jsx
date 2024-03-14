@@ -12,7 +12,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Box from "@mui/material/Box";
-import UpdateManager from "../../components/UpdateManager";
+import UpdateManager from "../UpdateCoffeeShop";
 function ReadManager() {
   const navigate = useNavigate();
   const [deletedIds, setDeletedIds] = useState([]);

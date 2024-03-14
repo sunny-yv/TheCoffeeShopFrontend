@@ -3,9 +3,10 @@ import SignUp from "./pages/SignUp";
 import OrderStaff from "./pages/OrderStaff";
 import HomeStaff from "./pages/HomeStaff";
 import BookingStaff from "./pages/BookingStaff";
-import Location from "./pages/Location";
 import HomePage from "./pages/HomePage";
 import Booking from "./pages/Booking";
+import Location from "./pages/Location";
+import Chinhanh1 from "./pages/Location/Chinhanh1";
 import Chinhanh2 from "./pages/Location/Chinhanh2";
 import Chinhanh3 from "./pages/Location/Chinhanh3";
 import Chinhanh4 from "./pages/Location/Chinhanh4";
@@ -29,10 +30,15 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { AuthProvider } from "./contexts/auth";
 import CreateCat from "./pages/Manager/CreateCat";
-
+import Table from "./pages/Table";
 import ReadCat from "./pages/Manager/ReadCat";
 import UpdateCat from "./pages/Manager/UpdateCat";
 import UpdateManager from "./pages/Admin/UpdateManager";
+import TableCoffeeShop2 from "./pages/Table/TableCoffeeShop2";
+import TableCoffeeShop3 from "./pages/Table/TableCoffeeShop3";
+import TableCoffeeShop4 from "./pages/Table/TableCoffeeShop4";
+import TableCoffeeShop5 from "./pages/Table/TableCoffeeShop5";
+import ConfirmStaff from "./pages/ConfirmStaff";
 function App() {
   return (
     <AuthProvider>
@@ -43,9 +49,9 @@ function App() {
           <Route path="/signup" element={<SignUp />} />
           <Route path="/orderstaff" element={<OrderStaff />} />
           <Route path="/homestaff" element={<HomeStaff />} />
-          <Route path="/location" element={<Location />} />
           <Route path="/bookingstaff" element={<BookingStaff />} />
           <Route path="/booking" element={<Booking />} />
+          <Route path="/location" element={<Chinhanh1  />} />
           <Route path="/location2" element={<Chinhanh2 />} />
           <Route path="/location3" element={<Chinhanh3 />} />
           <Route path="/location4" element={<Chinhanh4 />} />
@@ -70,6 +76,12 @@ function App() {
           <Route path="/updatecat/:catID" element={<UpdateCat />} />
           <Route path="/updatemanager" element={<UpdateManager />} />
           <Route path="/updatemanager/:coffeeID" element={<UpdateManager />} />
+          <Route path="/table" element={<Table />} />
+          <Route path="/tablecoffeeshop2" element={<TableCoffeeShop2 />} />
+          <Route path="/tablecoffeeshop3" element={<TableCoffeeShop3 />} />
+          <Route path="/tablecoffeeshop4" element={<TableCoffeeShop4 />} />
+          <Route path="/tablecoffeeshop5" element={<TableCoffeeShop5 />} />
+          <Route path="/confirmstaff" element={<ConfirmStaff />} />
         </Routes>
       </BrowserRouter>
       <ToastContainer />
