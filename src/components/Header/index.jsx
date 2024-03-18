@@ -42,11 +42,11 @@ function Header() {
             </Dropdown.Toggle>
 
             <Dropdown.Menu>
-              <Dropdown.Item href="/location">Chi nhánh 1</Dropdown.Item>
-              <Dropdown.Item href="/location2">Chi nhánh 2</Dropdown.Item>
-              <Dropdown.Item href="/location3">Chi nhánh 3</Dropdown.Item>
-              <Dropdown.Item href="/location4">Chi nhánh 4</Dropdown.Item>
-              <Dropdown.Item href="/location5">Chi nhánh 5</Dropdown.Item>
+              <Dropdown.Item href="/location">Chi nhánh Bình Tân</Dropdown.Item>
+              <Dropdown.Item href="/location2">Chi nhánh Quận 1</Dropdown.Item>
+              <Dropdown.Item href="/location3">Chi nhánh Tân Bình</Dropdown.Item>
+              <Dropdown.Item href="/location4">Chi nhánh Quận 8</Dropdown.Item>
+              <Dropdown.Item href="/location5">Chi nhánh Quận 2</Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
           <li>

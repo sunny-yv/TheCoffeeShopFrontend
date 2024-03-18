@@ -22,7 +22,7 @@ function Login() {
       toast("Đăng nhập thành công", {
         type: "success",
       });
-      if (response.roleName === "Manager") {
+      if (response.roleName === "Admin") {
         navigate("/admin");
       } else{
         navigate("/");

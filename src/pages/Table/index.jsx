@@ -41,7 +41,7 @@ const App = () => {
   const fetchTables = async () => {
     try {
       const response = await axios.get(
-        `https://65e74f0253d564627a8e7c9f.mockapi.io/table`
+        `https://thecoffeeshopstore.azurewebsites.net/api/Tables`
       );
       const filteredTables = response.data.filter(
         (table) => table.coffeeID === coffeeShopId
@@ -74,13 +74,7 @@ const App = () => {
         confirmBooking(selectedTable.tableID);
         console.log(selectedTable.tableID);
         await fetchTables();
-        // setTables(prevTables =>
-        //   prevTables.map(table =>
-        //     table.tableID === selectedTable.tableID
-        //       ? { ...table, status: 'Yêu cầu đặt' }
-        //       : table
-        //   )
-        // );
+        
         setSnackbarSeverity("success");
         setSnackbarMessage("Đặt hàng thành công!");
         setSnackbarOpen(true);
@@ -103,7 +97,7 @@ const App = () => {
     });
     console.log(updateTables);
     await axios
-      .put(`https://65e74f0253d564627a8e7c9f.mockapi.io/table/${tableID}`, {
+      .put(`https://thecoffeeshopstore.azurewebsites.net/api/Tables/${tableID}`, {
         status: "Yêu cầu đặt",
       })
       .then((response) => console.log(response.status));
@@ -124,9 +118,10 @@ const App = () => {
   const handleUpdateStatus = async () => {
     try {
       await axios.put(
-        `https://65e74f0253d564627a8e7c9f.mockapi.io/table/${selectedTable.tableID}`,
+        `https://thecoffeeshopstore.azurewebsites.net/api/Tables/${selectedTable.tableID}`,
         {
           status: selectedStatus,
+          type: selectedTable.type
         }
       );
       setTables((prevTables) =>

@@ -132,7 +132,7 @@ export default function Admin() {
   const { loaded } = useAuth()
 
   useEffect(() => {
-    if (loaded && (!userData || userData.roleName !== "Manager")) {
+    if (loaded && (!userData || userData.roleName !== "Admin")) {
       navigate("/");
     }
   }, [loaded, navigate, userData]);
@@ -204,11 +204,11 @@ export default function Admin() {
           MenuListProps={{ onMouseLeave: handleMenuClose }}
         >
           <MenuItem onClick={() => handleMenuChange("MenuStaff")}>Menu Staff</MenuItem>
-          <MenuItem onClick={() => handleMenuChange("TableCoffeeShop1")}>Chi nhánh 1</MenuItem>
-          <MenuItem onClick={() => handleMenuChange("TableCoffeeShop2")}>Chi nhánh 2</MenuItem>
-          <MenuItem onClick={() => handleMenuChange("TableCoffeeShop3")}>Chi nhánh 3</MenuItem>
-          <MenuItem onClick={() => handleMenuChange("TableCoffeeShop4")}>Chi nhánh 4</MenuItem>
-          <MenuItem onClick={() => handleMenuChange("TableCoffeeShop5")}>Chi nhánh 5</MenuItem>
+          <MenuItem onClick={() => handleMenuChange("TableCoffeeShop1")}>Chi nhánh  Bình Tân</MenuItem>
+          <MenuItem onClick={() => handleMenuChange("TableCoffeeShop2")}>Chi nhánh Quận 1</MenuItem>
+          <MenuItem onClick={() => handleMenuChange("TableCoffeeShop3")}>Chi nhánh Tân Bình</MenuItem>
+          <MenuItem onClick={() => handleMenuChange("TableCoffeeShop4")}>Chi nhánh Quận 8</MenuItem>
+          <MenuItem onClick={() => handleMenuChange("TableCoffeeShop5")}>Chi nhánh Quận 2</MenuItem>
         </Menu>
         <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
           {menuData === "ReadCoffeeShop" && <ReadCoffeeShop />}

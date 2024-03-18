@@ -53,7 +53,7 @@ const App = () => {
   };
 
   const handleTableClick = (table) => {
-    if (userData.roleName === "Staff" || userData.roleName === "Manager") {
+    if (userData.roleName === "Staff" || userData.roleName === "Admin" || userData.roleName === "Manager") {
       
       setSelectedTable(table);
       setChangeStatusDialogOpen(true);
