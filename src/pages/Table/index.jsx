@@ -53,14 +53,16 @@ const App = () => {
   };
 
   const handleTableClick = (table) => {
-    if (userData.roleName !== "Staff") {
+    if (userData.roleName === "Staff" || userData.roleName === "Manager") {
+      
+      setSelectedTable(table);
+      setChangeStatusDialogOpen(true);
+    } else {
+     
       if (table.status === "Trống") {
         setSelectedTable(table);
         setConfirmDialogOpen(true);
       }
-    } else {
-      setSelectedTable(table);
-      setChangeStatusDialogOpen(true);
     }
   };
 

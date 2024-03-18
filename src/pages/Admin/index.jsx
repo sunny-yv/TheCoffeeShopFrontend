@@ -16,14 +16,21 @@ import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-import InboxIcon from "@mui/icons-material/MoveToInbox";
-import MailIcon from "@mui/icons-material/Mail";
 import CreateCoffeeShop from "../../components/CreateCoffeeShop";
 import ReadCoffeeShop from "../../components/ReadCoffeeShop";
 import ReadCat from "../Manager/ReadCat";
+import Collapse from "@mui/material/Collapse";
+import MenuItem from "@mui/material/MenuItem";
+import Menu from "@mui/material/Menu";
 import { MdDomain, MdCreateNewFolder } from "react-icons/md";
 import { useAuth, useUserData } from "../../contexts/auth";
 import { useNavigate } from "react-router-dom";
+import MenuStaff from "./Menu";
+import TableCoffeeShop1 from "../Table/TableCoffeeShop1";
+import TableCoffeeShop2 from "../Table/TableCoffeeShop2";
+import TableCoffeeShop3 from "../Table/TableCoffeeShop3";
+import TableCoffeeShop4 from "../Table/TableCoffeeShop4";
+import TableCoffeeShop5 from "../Table/TableCoffeeShop5";
 const drawerWidth = 240;
 
 const openedMixin = (theme) => ({
@@ -94,7 +101,9 @@ const Drawer = styled(MuiDrawer, {
 export default function Admin() {
   const theme = useTheme();
   const [open, setOpen] = useState(false);
-  const [menudata, setMenudata] = useState("Home");
+  const [menuData, setMenuData] = useState("Home");
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [anchorEl, setAnchorEl] = useState(null);
   const handleDrawerOpen = () => {
     setOpen(true);
   };
@@ -103,6 +112,21 @@ export default function Admin() {
     setOpen(false);
   };
 
+  const handleMenuOpen = (event) => {
+    setAnchorEl(event.currentTarget);
+    setMenuOpen(true);
+  };
+
+  const handleMenuClose = () => {
+    setAnchorEl(null);
+    setMenuOpen(false);
+  };
+
+  const handleMenuChange = (menu) => {
+    setMenuData(menu);
+    handleMenuClose();
+  };
+  
   const navigate = useNavigate();
   const userData = useUserData();
   const { loaded } = useAuth()
@@ -113,6 +137,8 @@ export default function Admin() {
     }
   }, [loaded, navigate, userData]);
 
+  
+
   return (
     <>
       <Box sx={{ display: "flex" }}>
@@ -122,9 +148,7 @@ export default function Admin() {
             <IconButton
               color="inherit"
               aria-label="open drawer"
-              onClick={() => {
-                setOpen(!open);
-              }}
+              onClick={handleDrawerOpen}
               edge="start"
             >
               <MenuIcon />
@@ -145,66 +169,57 @@ export default function Admin() {
             </IconButton>
           </DrawerHeader>
           <Divider />
-          
           <List>
-          
-            <ListItem
-            
-              disablePadding
-              sx={{ display: "block" }}
-              onClick={() => setMenudata("ReadCoffeeShop")}
-            >
-              <ListItemButton
-                sx={{
-                  minHeight: 48,
-                  justifyContent: open ? "initial" : "center",
-                  px: 2.5,
-                }}
-              >
-                <ListItemIcon
-                  sx={{
-                    minWidth: 0,
-                    mr: open ? 3 : "auto",
-                    justifyContent: "center",
-                  }}
-                >
+            <ListItem disablePadding onClick={() => setMenuData("ReadCoffeeShop")}>
+              <ListItemButton>
+                <ListItemIcon>
                   <MdDomain />
                 </ListItemIcon>
                 <ListItemText primary="Trang chủ" />
               </ListItemButton>
             </ListItem>
-            <ListItem
-              disablePadding
-              sx={{ display: "block" }}
-              onClick={() => setMenudata("Readcat")}
-            >
-              <ListItemButton
-                sx={{
-                  minHeight: 48,
-                  justifyContent: open ? "initial" : "center",
-                  px: 2.5,
-                }}
-              >
-                <ListItemIcon
-                  sx={{
-                    minWidth: 0,
-                    mr: open ? 3 : "auto",
-                    justifyContent: "center",
-                  }}
-                >
+            <ListItem disablePadding onClick={() => setMenuData("Readcat")}>
+              <ListItemButton>
+                <ListItemIcon>
                   <MdCreateNewFolder />
                 </ListItemIcon>
                 <ListItemText primary="Quản lý" />
               </ListItemButton>
             </ListItem>
-            
+            <ListItem disablePadding>
+              <ListItemButton onClick={handleMenuOpen}>
+                <ListItemIcon>
+                  <MdCreateNewFolder />
+                </ListItemIcon>
+                <ListItemText primary="Nhân viên" />
+              </ListItemButton>
+            </ListItem>
           </List>
           <Divider />
         </Drawer>
+        <Menu
+          anchorEl={anchorEl}
+          open={menuOpen}
+          onClose={handleMenuClose}
+          MenuListProps={{ onMouseLeave: handleMenuClose }}
+        >
+          <MenuItem onClick={() => handleMenuChange("MenuStaff")}>Menu Staff</MenuItem>
+          <MenuItem onClick={() => handleMenuChange("TableCoffeeShop1")}>Chi nhánh 1</MenuItem>
+          <MenuItem onClick={() => handleMenuChange("TableCoffeeShop2")}>Chi nhánh 2</MenuItem>
+          <MenuItem onClick={() => handleMenuChange("TableCoffeeShop3")}>Chi nhánh 3</MenuItem>
+          <MenuItem onClick={() => handleMenuChange("TableCoffeeShop4")}>Chi nhánh 4</MenuItem>
+          <MenuItem onClick={() => handleMenuChange("TableCoffeeShop5")}>Chi nhánh 5</MenuItem>
+        </Menu>
         <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
-          {menudata == "ReadCoffeeShop" && <ReadCoffeeShop />}
-          {menudata == "CreateCoffeeShop" && <CreateCoffeeShop />}
-          {menudata == "Readcat" && <ReadCat />}
+          {menuData === "ReadCoffeeShop" && <ReadCoffeeShop />}
+          {menuData === "CreateCoffeeShop" && <CreateCoffeeShop />}
+          {menuData === "Readcat" && <ReadCat />}
+          {menuData === "MenuStaff" && <MenuStaff />}
+          {menuData === "TableCoffeeShop1" && <TableCoffeeShop1 />}
+          {menuData === "TableCoffeeShop2" && <TableCoffeeShop2 />}
+          {menuData === "TableCoffeeShop3" && <TableCoffeeShop3 />}
+          {menuData === "TableCoffeeShop4" && <TableCoffeeShop4 />}
+          {menuData === "TableCoffeeShop5" && <TableCoffeeShop5 />}
         </Box>
       </Box>
     </>

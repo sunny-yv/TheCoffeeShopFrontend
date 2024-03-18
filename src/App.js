@@ -35,59 +35,70 @@ import ReadCat from "./pages/Manager/ReadCat";
 import UpdateCat from "./pages/Manager/UpdateCat";
 import UpdateManager from "./pages/Admin/UpdateManager";
 import CreateCoffeeShop from "./pages/Admin/CreateCoffeeShop";
+import TableCoffeeShop1 from "./pages/Table/TableCoffeeShop1";
 import TableCoffeeShop2 from "./pages/Table/TableCoffeeShop2";
 import TableCoffeeShop3 from "./pages/Table/TableCoffeeShop3";
 import TableCoffeeShop4 from "./pages/Table/TableCoffeeShop4";
 import TableCoffeeShop5 from "./pages/Table/TableCoffeeShop5";
 import ConfirmStaff from "./pages/ConfirmStaff";
+import Cart from "./pages/Cart";
+import CartProvider from "./contexts/cart";
+
 function App() {
   return (
-    <AuthProvider>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<SignUp />} />
-          <Route path="/orderstaff" element={<OrderStaff />} />
-          <Route path="/homestaff" element={<HomeStaff />} />
-          <Route path="/bookingstaff" element={<BookingStaff />} />
-          <Route path="/booking" element={<Booking />} />
-          <Route path="/location" element={<Chinhanh1  />} />
-          <Route path="/location2" element={<Chinhanh2 />} />
-          <Route path="/location3" element={<Chinhanh3 />} />
-          <Route path="/location4" element={<Chinhanh4 />} />
-          <Route path="/location5" element={<Chinhanh5 />} />
-          <Route path="/cat" element={<Cat />} />
-          <Route path="/allcat" element={<ListAllCat />} />
-          <Route path="/catshop1" element={<CatShop1 />} />
-          <Route path="/catshop2" element={<CatShop2 />} />
-          <Route path="/catshop3" element={<CatShop3 />} />
-          <Route path="/catshop4" element={<CatShop4 />} />
-          <Route path="/catshop5" element={<CatShop5 />} />
-          <Route path="/introduction" element={<IntroductionPage />} />
-          <Route path="/menu" element={<Menu />} />
-          <Route path="/allmenu" element={<ListAllMenu />} />
-          <Route path="/drinks" element={<Drinks />} />
-          <Route path="/catproducts" element={<CatProducts />} />
-          <Route path="/admin" element={<Admin />} />
-          <Route path="/manager" element={<Manager />} />
-          <Route path="/createcat" element={<CreateCat />} />
-          <Route path="/readcat" element={<ReadCat />} />
-          <Route path="/updatecat" element={<UpdateCat />} />
-          <Route path="/updatecat/:catID" element={<UpdateCat />} />
-          <Route path="/createcoffeeshop" element={<CreateCoffeeShop />} />
-          <Route path="/updatemanager" element={<UpdateManager />} />
-          <Route path="/updatemanager/:coffeeID" element={<UpdateManager />} />
-          <Route path="/table" element={<Table />} />
-          <Route path="/tablecoffeeshop2" element={<TableCoffeeShop2 />} />
-          <Route path="/tablecoffeeshop3" element={<TableCoffeeShop3 />} />
-          <Route path="/tablecoffeeshop4" element={<TableCoffeeShop4 />} />
-          <Route path="/tablecoffeeshop5" element={<TableCoffeeShop5 />} />
-          <Route path="/confirmstaff" element={<ConfirmStaff />} />
-        </Routes>
-      </BrowserRouter>
-      <ToastContainer />
-    </AuthProvider>
+    <CartProvider>
+      <AuthProvider>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<SignUp />} />
+            <Route path="/orderstaff" element={<OrderStaff />} />
+            <Route path="/homestaff" element={<HomeStaff />} />
+            <Route path="/bookingstaff" element={<BookingStaff />} />
+            <Route path="/booking" element={<Booking />} />
+            <Route path="/location" element={<Chinhanh1 />} />
+            <Route path="/location2" element={<Chinhanh2 />} />
+            <Route path="/location3" element={<Chinhanh3 />} />
+            <Route path="/location4" element={<Chinhanh4 />} />
+            <Route path="/location5" element={<Chinhanh5 />} />
+            <Route path="/cat" element={<Cat />} />
+            <Route path="/allcat" element={<ListAllCat />} />
+            <Route path="/catshop1" element={<CatShop1 />} />
+            <Route path="/catshop2" element={<CatShop2 />} />
+            <Route path="/catshop3" element={<CatShop3 />} />
+            <Route path="/catshop4" element={<CatShop4 />} />
+            <Route path="/catshop5" element={<CatShop5 />} />
+            <Route path="/introduction" element={<IntroductionPage />} />
+            <Route path="/menu" element={<Menu />} />
+            <Route path="/allmenu" element={<ListAllMenu />} />
+            <Route path="/drinks" element={<Drinks />} />
+            <Route path="/catproducts" element={<CatProducts />} />
+            <Route path="/admin" element={<Admin />} />
+            <Route path="/manager" element={<Manager />} />
+            <Route path="/createcat" element={<CreateCat />} />
+            <Route path="/readcat" element={<ReadCat />} />
+            <Route path="/updatecat" element={<UpdateCat />} />
+            <Route path="/updatecat/:catID" element={<UpdateCat />} />
+            <Route path="/createcoffeeshop" element={<CreateCoffeeShop />} />
+            <Route path="/updatemanager" element={<UpdateManager />} />
+            <Route
+              path="/updatemanager/:coffeeID"
+              element={<UpdateManager />}
+            />
+            <Route path="/table" element={<Table />} />
+            <Route path="/tablecoffeeshop1" element={<TableCoffeeShop1 />} />
+            <Route path="/tablecoffeeshop2" element={<TableCoffeeShop2 />} />
+            <Route path="/tablecoffeeshop3" element={<TableCoffeeShop3 />} />
+            <Route path="/tablecoffeeshop4" element={<TableCoffeeShop4 />} />
+            <Route path="/tablecoffeeshop5" element={<TableCoffeeShop5 />} />
+            <Route path="/confirmstaff" element={<ConfirmStaff />} />
+            <Route path="/cart" element={<Cart />} />
+          </Routes>
+        </BrowserRouter>
+        <ToastContainer />
+      </AuthProvider>
+    </CartProvider>
   );
 }
 

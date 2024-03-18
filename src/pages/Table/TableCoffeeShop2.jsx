@@ -53,14 +53,16 @@ const App = () => {
   };
 
   const handleTableClick = (table) => {
-    if (userData.roleName !== "Staff") {
+    if (userData.roleName === "Staff" || userData.roleName === "Manager") {
+      
+      setSelectedTable(table);
+      setChangeStatusDialogOpen(true);
+    } else {
+     
       if (table.status === "Trống") {
         setSelectedTable(table);
         setConfirmDialogOpen(true);
       }
-    } else {
-      setSelectedTable(table);
-      setChangeStatusDialogOpen(true);
     }
   };
 
@@ -159,20 +161,36 @@ const App = () => {
           {tables.map((table) => (
             <Grid item xs={12} sm={6} md={4} key={table.tableID}>
               <Paper
-                elevation={3}
-                style={{
-                  padding: 20,
-                  backgroundColor:
-                    table.status === "Trống"
-                      ? "green"
-                      : table.status === "Đã đặt"
-                      ? "yellow"
-                      : "red",
-                  cursor: table.status === "Đã đặt" ? "not-allowed" : "pointer",
-
-                  // opacity: userData.roleName !== 'Staff' && table.status !== 'Trống' ? 0.5 : 1,
-                }}
-                onClick={() => handleTableClick(table)}
+                 elevation={3}
+                 style={{
+                   padding: 20,
+                   backgroundColor:
+                     table.status === "Trống"
+                       ? "green"
+                       : table.status === "Đã đặt"
+                       ? "yellow"
+                       : "red",
+                   cursor:
+                     (userData.roleName === "Staff" || userData.roleName === "Manager") ||
+                     table.status === "Trống"
+                       ? "pointer"
+                       : "not-allowed",
+                   opacity:
+                     userData.roleName === "Staff" || userData.roleName === "Manager"
+                       ? 1
+                       : table.status === "Trống"
+                       ? 1
+                       : 0.5,
+                 }}
+                 onClick={() => {
+                   if (
+                     (userData.roleName === "Staff" || userData.roleName === "Manager") ||
+                     table.status === "Trống"
+                   ) {
+                     handleTableClick(table);
+                   }
+                 }}
+               
               >
                 <Typography variant="body1" gutterBottom>
                   Trạng thái: {table.status}
