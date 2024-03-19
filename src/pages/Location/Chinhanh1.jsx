@@ -43,7 +43,7 @@ function Location1() {
               <br />
               <p style={{ fontSize: "25px" }}> Số giấy phép - 136453</p>
             </div>
-            <div className="text-location-right">
+            <div className="text-location-right" style={{marginBottom: "25px" }}>
               <div className="column">
                 <h4 style={{fontSize: "25px" }}>Giờ mở cửa</h4>
                 <p style={{ marginTop: "-15px", fontSize: "20px" }}>Thứ 2-Chủ nhật: 8:00 AM</p>
