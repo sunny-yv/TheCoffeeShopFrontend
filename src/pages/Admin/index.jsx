@@ -59,7 +59,7 @@ const DrawerHeader = styled("div")(({ theme }) => ({
   alignItems: "center",
   justifyContent: "flex-end",
   padding: theme.spacing(0, 1),
- 
+
   ...theme.mixins.toolbar,
 }));
 
@@ -126,18 +126,16 @@ export default function Admin() {
     setMenuData(menu);
     handleMenuClose();
   };
-  
+
   const navigate = useNavigate();
   const userData = useUserData();
-  const { loaded } = useAuth()
+  const { loaded } = useAuth();
 
   useEffect(() => {
     if (loaded && (!userData || userData.roleName !== "Admin")) {
       navigate("/");
     }
   }, [loaded, navigate, userData]);
-
-  
 
   return (
     <>
@@ -170,7 +168,10 @@ export default function Admin() {
           </DrawerHeader>
           <Divider />
           <List>
-            <ListItem disablePadding onClick={() => setMenuData("ReadCoffeeShop")}>
+            <ListItem
+              disablePadding
+              onClick={() => setMenuData("ReadCoffeeShop")}
+            >
               <ListItemButton>
                 <ListItemIcon>
                   <MdDomain />
@@ -203,23 +204,28 @@ export default function Admin() {
           onClose={handleMenuClose}
           MenuListProps={{ onMouseLeave: handleMenuClose }}
         >
-          <MenuItem onClick={() => handleMenuChange("MenuStaff")}>Menu Staff</MenuItem>
-          <MenuItem onClick={() => handleMenuChange("TableCoffeeShop1")}>Chi nhánh  Bình Tân</MenuItem>
-          <MenuItem onClick={() => handleMenuChange("TableCoffeeShop2")}>Chi nhánh Quận 1</MenuItem>
-          <MenuItem onClick={() => handleMenuChange("TableCoffeeShop3")}>Chi nhánh Tân Bình</MenuItem>
-          <MenuItem onClick={() => handleMenuChange("TableCoffeeShop4")}>Chi nhánh Quận 8</MenuItem>
-          <MenuItem onClick={() => handleMenuChange("TableCoffeeShop5")}>Chi nhánh Quận 2</MenuItem>
+          <MenuItem onClick={() => handleMenuChange("MenuStaff")}>
+            Menu Staff
+          </MenuItem>
+          <MenuItem onClick={() => handleMenuChange("TableCoffeeShop1")}>
+            Chi nhánh Bình Tân
+          </MenuItem>
+          <MenuItem onClick={() => handleMenuChange("TableCoffeeShop2")}>
+            Chi nhánh Quận 1
+          </MenuItem>
+          <MenuItem onClick={() => handleMenuChange("TableCoffeeShop3")}>
+            Chi nhánh Tân Bình
+          </MenuItem>
+          <MenuItem onClick={() => handleMenuChange("TableCoffeeShop4")}>
+            Chi nhánh Quận 8
+          </MenuItem>
+          <MenuItem onClick={() => handleMenuChange("TableCoffeeShop5")}>
+            Chi nhánh Quận 2
+          </MenuItem>
         </Menu>
         <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
-          {menuData === "ReadCoffeeShop" && <ReadCoffeeShop />}
-          {menuData === "CreateCoffeeShop" && <CreateCoffeeShop />}
-          {menuData === "Readcat" && <ReadCat />}
-          {menuData === "MenuStaff" && <MenuStaff />}
-          {menuData === "TableCoffeeShop1" && <TableCoffeeShop1 />}
-          {menuData === "TableCoffeeShop2" && <TableCoffeeShop2 />}
-          {menuData === "TableCoffeeShop3" && <TableCoffeeShop3 />}
-          {menuData === "TableCoffeeShop4" && <TableCoffeeShop4 />}
-          {menuData === "TableCoffeeShop5" && <TableCoffeeShop5 />}
+          {menudata == "ReadManager" && <ReadManager />}
+          {menudata == "CreateManager" && <CreateManager />}
         </Box>
       </Box>
     </>

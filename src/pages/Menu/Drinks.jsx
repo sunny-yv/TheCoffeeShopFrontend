@@ -82,6 +82,16 @@ function Drinks() {
                   <Typography gutterBottom variant="h8" component="div">
                     {card.unitPrice}
                   </Typography>
+                  <button
+                    onClick={() =>
+                      dispatch({
+                        type: ADD_TO_CART,
+                        payload: product,
+                      })
+                    }
+                  >
+                    Add to cart
+                  </button>
                 </CardContent>
               </CardActionArea>
             </Card>
