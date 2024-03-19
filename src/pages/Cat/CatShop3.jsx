@@ -60,7 +60,7 @@ function CatShop3() {
                       {card.type}
                     </Typography>
                     <Typography gutterBottom variant="h8" component="div">
-                      Chi nhánh 1
+                      Chi nhánh Tân Bình
                     </Typography>
                     <Typography variant="body2" color="text.secondary">
                       {card.description}
