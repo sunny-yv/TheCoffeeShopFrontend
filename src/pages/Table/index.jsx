@@ -117,13 +117,16 @@ const App = () => {
 
   const handleUpdateStatus = async () => {
     try {
+      
       await axios.put(
         `https://thecoffeeshopstore.azurewebsites.net/api/Tables/${selectedTable.tableID}`,
         {
+          tableID: selectedTable.tableID,
           status: selectedStatus,
-          type: selectedTable.type
+          coffeeID: selectedTable.coffeeID,
         }
       );
+     
       setTables((prevTables) =>
         prevTables.map((table) =>
           table.tableID === selectedTable.tableID

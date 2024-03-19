@@ -30,19 +30,25 @@ function Booking() {
               >
                 <button class="button">Chi nhánh 2</button>
               </Link>
-            </div>
-            <div className="button-bottom">
               <Link
                 to="/location3"
                 style={{ textDecoration: "none", color: "inherit" }}
               >
                 <button class="button">Chi nhánh 3</button>
               </Link>
+            </div>
+            <div className="button-bottom">
               <Link
                 to="/location4"
                 style={{ textDecoration: "none", color: "inherit" }}
               >
                 <button class="button">Chi nhánh 4</button>
+              </Link>
+              <Link
+                to="/location5"
+                style={{ textDecoration: "none", color: "inherit" }}
+              >
+                <button class="button">Chi nhánh 5</button>
               </Link>
               
             </div>
