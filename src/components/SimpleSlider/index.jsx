@@ -41,27 +41,31 @@ function SimpleSlider() {
         },
       },
     ],
+    autoplay: true,
+    autoplaySpeed: 2000,
+    pauseOnHover: true,
   };
+
   return (
     <div className="container">
       <Slider {...settings}>
         <div>
-          <img src="../asset/meotrangchu.png" alt="" className="w-50" />
+          <img src="../asset/meotrangchu.png" alt="" className="w-70" />
         </div>
         <div>
-          <img src="../asset/meotrangchu2.png" alt="" className="w-50" />
+          <img src="../asset/meotrangchu2.png" alt="" className="w-70" />
         </div>
         <div>
-          <img src="../asset/meotrangchu3.png" alt="" className="w-50" />
+          <img src="../asset/meotrangchu3.png" alt="" className="w-70" />
         </div>
         <div>
-          <img src="../asset/meotrangchu4.1.png" alt="" className="w-50" />
+          <img src="../asset/meotrangchu4.1.png" alt="" className="w-70" />
         </div>
         <div>
-          <img src="../asset/meotrangchu5.1.png" alt="" className="w-50" />
+          <img src="../asset/meotrangchu5.1.png" alt="" className="w-70" />
         </div>
         <div>
-          <img src="../asset/meotrangchu6.1.png" alt="" className="w-50" />
+          <img src="../asset/meotrangchu6.1.png" alt="" className="w-70" />
         </div>
       </Slider>
     </div>

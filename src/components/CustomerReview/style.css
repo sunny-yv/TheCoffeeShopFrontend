@@ -1,0 +1,13 @@
+
+  .sticky-slider {
+    position: relative;
+    left: 0;
+    display: block;
+    top: 0;
+  margin: 10px;
+    width: 100%;
+    
+  }
+  .comment{
+    margin: 2%;
+  }
