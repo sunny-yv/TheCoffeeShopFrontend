@@ -53,6 +53,12 @@ function Location3() {
                 <h4 style={{fontSize: "25px" }}>Giờ đóng cửa</h4>
                 <p style={{ marginTop: "-15px", fontSize: "20px" }}>Thứ 2-Chủ nhật: 20:00 PM</p>
               </div>
+              <div className="column" style={{ marginTop: "20px" }}>
+                <h4 style={{ fontSize: "25px" }}>Địa chỉ</h4>
+                <p style={{ marginTop: "-15px", fontSize: "20px" }}>
+                135 Hoàng Hoa Thám, Phường 13, Tân Bình, Thành phố Hồ Chí Minh
+                </p>
+              </div>
               <div className="column" style={{marginTop: "25px" }}>
                 <h4 style={{fontSize: "25px" }}>Liên hệ</h4>
                 <p style={{ marginTop: "-15px", fontSize: "20px" }}>Phone: {coffeeShop.phoneNumber}</p>

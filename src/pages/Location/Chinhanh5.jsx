@@ -53,6 +53,12 @@ function Location2() {
                 <p style={{ marginTop: "-15px", fontSize: "20px" }}>Thứ 2-Chủ nhật: 20:00 PM</p>
               </div>
               <div className="column" style={{ marginTop: "20px" }}>
+                <h4 style={{ fontSize: "25px" }}>Địa chỉ</h4>
+                <p style={{ marginTop: "-15px", fontSize: "20px" }}>
+                48 Đường Phan Liêm, Đa Kao, Quận 2, Thành phố Hồ Chí Minh
+                </p>
+              </div>
+              <div className="column" style={{ marginTop: "20px" }}>
                 <h4 style={{fontSize: "25px" }}>Liên hệ</h4>
                 <p style={{ marginTop: "-15px", fontSize: "20px" }}>Phone: {coffeeShop.phoneNumber}</p>
               </div>

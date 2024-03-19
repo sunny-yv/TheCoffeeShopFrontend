@@ -43,20 +43,36 @@ function Location1() {
               <br />
               <p style={{ fontSize: "25px" }}> Số giấy phép - 136453</p>
             </div>
-            <div className="text-location-right" style={{marginBottom: "25px" }}>
+            <div
+              className="text-location-right"
+              style={{ marginBottom: "25px" }}
+            >
               <div className="column">
-                <h4 style={{fontSize: "25px" }}>Giờ mở cửa</h4>
-                <p style={{ marginTop: "-15px", fontSize: "20px" }}>Thứ 2-Chủ nhật: 8:00 AM</p>
+                <h4 style={{ fontSize: "25px" }}>Giờ mở cửa</h4>
+                <p style={{ marginTop: "-15px", fontSize: "20px" }}>
+                  Thứ 2-Chủ nhật: 8:00 AM
+                </p>
               </div>
               <div className="column" style={{ marginTop: "20px" }}>
-                <h4 style={{fontSize: "25px" }}>Giờ đóng cửa</h4>
-                <p style={{ marginTop: "-15px", fontSize: "20px" }}>Thứ 2-Chủ nhật: 20:00 PM</p>
+                <h4 style={{ fontSize: "25px" }}>Giờ đóng cửa</h4>
+                <p style={{ marginTop: "-15px", fontSize: "20px" }}>
+                  Thứ 2-Chủ nhật: 20:00 PM
+                </p>
               </div>
               <div className="column" style={{ marginTop: "20px" }}>
-                <h4 style={{fontSize: "25px" }}>Liên hệ</h4>
-                <p style={{ marginTop: "-15px", fontSize: "20px"}}>Phone: {coffeeShop.phoneNumber}</p>
+                <h4 style={{ fontSize: "25px" }}>Địa chỉ</h4>
+                <p style={{ marginTop: "-15px", fontSize: "20px" }}>
+                  89 Đường số 3, Bình Hưng Hoà B, Bình Tân, Thành phố Hồ Chí
+                  Minh
+                </p>
               </div>
-              <div style={{ display: "inline-block",  marginTop: "10px" }}>
+              <div className="column" style={{ marginTop: "20px" }}>
+                <h4 style={{ fontSize: "25px" }}>Liên hệ</h4>
+                <p style={{ marginTop: "-15px", fontSize: "20px" }}>
+                  Phone: {coffeeShop.phoneNumber}
+                </p>
+              </div>
+              <div style={{ display: "inline-block", marginTop: "10px" }}>
                 <Button
                   variant="outlined"
                   href="#outlined-buttons"
@@ -77,7 +93,11 @@ function Location1() {
                 >
                   <Link
                     to="/table"
-                    style={{ textDecoration: "none", color: "inherit", fontSize: "25px" }}
+                    style={{
+                      textDecoration: "none",
+                      color: "inherit",
+                      fontSize: "25px",
+                    }}
                   >
                     Đặt bàn
                   </Link>
